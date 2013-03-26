@@ -1,0 +1,257 @@
+/******************************************************************************\
+ * IPMDAT_style.css                                                           *
+ * -------------------------------------------------------------------------- *
+ * Styling properties for the IPMDAT project.                                 *
+\******************************************************************************/
+
+/**********************************************\
+ * Color Scheme                               *
+ * ------------------------------------------ *
+ * Dark Blue (#12A1E0)                        *
+ * Medium Blue (#8DD5F4)                      *
+ * Light Blue (#BEDCE8)                       *
+ * Lighter Blue (#BDDCE8)                     *
+ * Dark Grey (#8E8E8E)                        *
+ * Light Grey (#CCC)                          *
+ * Darker White (#E2DDD9)                     *
+ * White (#FEFEFE)                            *
+ * Light Yellow (#FFDB4D)                     *
+ *
+\**********************************************/
+
+body, html{
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.clear{
+    clear: both;
+}
+
+/**********************************************\
+ * base.html                                  *
+\**********************************************/
+#site_container{
+    /* Lighter Blue */
+    background: #BDDCE8;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+#footer_container{
+    /* Medium Blue */
+    background: #8DD5F4;
+    /* Dark Grey */
+    border-top: 3px solid #8E8E8E;
+    bottom: 0;
+    height: 50px;
+    position: absolute;
+    text-align: right;
+    width: 100%;
+}
+    #footer_label{
+        padding-right: 50px;
+        padding-top: 10px;
+        position: relative;
+    }
+        #cookie_name_container{
+            float: right;
+        }
+        #cookie_name{
+        }
+        #console_log{
+        }
+        #clear_cookie{
+        }
+
+/**********************************************\
+ * home.html                                  *
+\**********************************************/
+#site_content{
+    /* Dark Blue */
+    background: #12A1E0;
+    /* Dark Grey */
+    border-top: 3px solid #8E8E8E;
+    border-right: 3px solid #8E8E8E;
+    height: 600px;
+    left: 7%;
+    position: relative;
+    top: 3%;
+    width: 1100px;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    /* Light Grey */
+    box-shadow: 5px 5px 20px #CCC;
+    -moz-box-shadow: 5px 5px 20px #CCC;
+    -webkit-box-shadow: 5px 5px 20px #CCC;
+}
+    #content_header_container{
+        /* Medium Blue */
+        background: #8DD5F4;
+        /* Light Grey */
+        border-top: 2px solid #CCC;
+        border-right: 2px solid #CCC;
+        height: 10%;
+        left: 11px;
+        position: relative;
+        top: 10px;
+        width: 98%;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+    }
+        #content_header_label{
+            float: left;
+            font-size: 2em;
+            position: relative;
+            margin-left: 45%;
+            margin-top: 10px;
+        }
+    #content_progress_bar_container{
+        /* Medium Blue */
+        background: #8DD5F4;
+        /* Light Grey */
+        border-top: 2px solid #CCC;
+        border-right: 2px solid #CCC;
+        height: 10%;
+        left: 28px;
+        position: relative;
+        top: 20px;
+        width: 95%;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+    }
+        .progress_bar_base_style{
+            /* Dark Grey */
+            border-top: 3px solid #8E8E8E;
+            border-right: 3px solid #8E8E8E;
+            cursor: pointer;
+            float: left;
+            height: 71%;
+            margin-left: 41px;
+            padding-top: 3px;
+            position: relative;
+            text-align: center;
+            top: 4px;
+            width: 12%;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+        }
+        .progress_bar_padding_top{
+            height: 57% !important;
+            padding-top: 11px !important;
+        }
+        .progress_bar_active{
+            /* Light Yellow */
+            background: #FFDB4D;
+        }
+        .progress_bar_inactive{
+            /* Light Grey */
+            background: #CCC;
+        }
+        .progress_bar_available{
+            /* Lighter Blue */
+            background: #BDDCE8; 
+        }
+    #content_nav_back{
+        /* Dark Grey */
+        border-left: 3px solid #8E8E8E;
+        margin-left: 17px;
+    }
+    #content_nav_forward{
+        /* Dark Grey */
+        border-right: 3px solid #8E8E8E;
+        margin-left: 43px;
+    }
+    .content_nav_base_style{
+        /* Light Grey */
+        background: #CCC;
+        cursor: pointer;
+        float: left;
+        font-size: 6em;
+        height: 49%;
+        padding-top: 147px;
+        position: relative;
+        top: 28px;
+        width: 5%;
+    }
+    .content_nav_base_inactive{
+        /* Dark Grey */
+        color: #8E8E8E;
+    }
+    .content_nav_base_active{
+    }
+    .content_substep_container_scheme{
+        /* White (#FEFEFE) */
+        background: #FEFEFE;
+        /* Dark Grey */
+        border: 1px solid #8E8E8E;
+        height: 20px;
+        left: 36%;
+        position: relative;
+        top: 10px;
+        width: 30%;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        /* Light Grey */
+        box-shadow: 5px 5px 20px #CCC;
+        -moz-box-shadow: 5px 5px 20px #CCC;
+        -webkit-box-shadow: 5px 5px 20px #CCC;
+    }
+        .content_substep_scheme{
+            /* Dark Grey */
+            border-left: 2px solid #8E8E8E;
+            border-right: 2px solid #8E8E8E;
+            float: left;
+            font-size: 2em;
+            margin: 3px;
+            margin-left: 9%;
+            position: relative;
+            text-align: center;
+            top: -12px;
+            width: 11%;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+        }
+        .content_substep_active{
+            /* Lighter Blue */
+            background: #BDDCE8;
+        }
+        .content_substep_inactive{
+            /* Light Grey */
+            background: #CCC;
+        }
+    #content_container{
+        /* Medium Blue */
+        background: #8DD5F4;
+        /* Light Grey */
+        border: 2px solid #CCC;
+        float: left;
+        height: 70%;
+        left: 21px;
+        position: relative;
+        top: 32px;
+        width: 82%;
+    }
+        .content_step_scheme{
+            /* Darker White */
+            background: #E2DDD9;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+        .content_step_active{
+            display: block !important;
+        }
+        .content_step_inactive{
+            display: none !important;
+        }
+        #content_step_one_container{
+        }
+        #content_step_two_container{
+        }
