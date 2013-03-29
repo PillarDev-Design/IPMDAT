@@ -206,6 +206,7 @@ body, html{
             /* Dark Grey */
             border-left: 2px solid #8E8E8E;
             border-right: 2px solid #8E8E8E;
+            cursor: pointer;
             float: left;
             font-size: 2em;
             margin: 3px;
@@ -219,12 +220,16 @@ body, html{
             -webkit-border-radius: 15px;
         }
         .content_substep_active{
-            /* Lighter Blue */
-            background: #BDDCE8;
+            /* Light Yellow */
+            background: #FFDB4D;
         }
         .content_substep_inactive{
             /* Light Grey */
             background: #CCC;
+        }
+        .content_substep_available{
+            /* Lighter Blue */
+            background: #BDDCE8;
         }
     #content_container{
         /* Medium Blue */
