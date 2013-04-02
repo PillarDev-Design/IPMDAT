@@ -200,6 +200,8 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     $('#content_progress_bar_suppression').unbind('click');
     // TODO: UPDATE HERE
     $('#content_progress_bar_recommendation_summary').unbind('click');
+    
+    // Make All Steps Unavailable By Default
 
     // Control Step Progress
     // PROJECT BACKGROUND (STEP 1) - Always available
@@ -215,39 +217,39 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     }
     for(var i=0; i<completedSteps.length; i++){
         if(completedSteps[i] === "1.1"){
-            if($('#content_step_project_background_substep_two').hasClass('progress_bar_active')){
-                $('#content_step_project_background_substep_two').removeClass('progress_bar_active');
+            if($('#content_step_project_background_substep_two').hasClass('content_substep_active')){
+                $('#content_step_project_background_substep_two').removeClass('content_substep_active');
             }
-            if($('#content_step_project_background_substep_two').hasClass('progress_bar_inactive')){
-                $('#content_step_project_background_substep_two').removeClass('progress_bar_inactive');
+            if($('#content_step_project_background_substep_two').hasClass('content_substep_inactive')){
+                $('#content_step_project_background_substep_two').removeClass('content_substep_inactive');
             }
-            if($('#content_step_project_background_substep_two').hasClass('progress_bar_available')){
+            if($('#content_step_project_background_substep_two').hasClass('content_substep_available')){
             }else{
-                $('#content_step_project_background_substep_two').addClass('progress_bar_available');
+                $('#content_step_project_background_substep_two').addClass('content_substep_available');
             }
         }
         if(completedSteps[i] === "1.2"){
-            if($('#content_step_project_background_substep_three').hasClass('progress_bar_active')){
-                $('#content_step_project_background_substep_three').removeClass('progress_bar_active');
+            if($('#content_step_project_background_substep_three').hasClass('content_substep_active')){
+                $('#content_step_project_background_substep_three').removeClass('content_substep_active');
             }
-            if($('#content_step_project_background_substep_three').hasClass('progress_bar_inactive')){
-                $('#content_step_project_background_substep_three').removeClass('progress_bar_inactive');
+            if($('#content_step_project_background_substep_three').hasClass('content_substep_inactive')){
+                $('#content_step_project_background_substep_three').removeClass('content_substep_inactive');
             }
-            if($('#content_step_project_background_substep_three').hasClass('progress_bar_available')){
+            if($('#content_step_project_background_substep_three').hasClass('content_substep_available')){
             }else{
-                $('#content_step_project_background_substep_three').addClass('progress_bar_available');
+                $('#content_step_project_background_substep_three').addClass('content_substep_available');
             }
         }
         if(completedSteps[i] === "1.3"){
-            if($('#content_step_project_background_substep_four').hasClass('progress_bar_active')){
-                $('#content_step_project_background_substep_four').removeClass('progress_bar_active');
+            if($('#content_step_project_background_substep_four').hasClass('content_substep_active')){
+                $('#content_step_project_background_substep_four').removeClass('content_substep_active');
             }
-            if($('#content_step_project_background_substep_four').hasClass('progress_bar_inactive')){
-                $('#content_step_project_background_substep_four').removeClass('progress_bar_inactive');
+            if($('#content_step_project_background_substep_four').hasClass('content_substep_inactive')){
+                $('#content_step_project_background_substep_four').removeClass('content_substep_inactive');
             }
-            if($('#content_step_project_background_substep_four').hasClass('progress_bar_available')){
+            if($('#content_step_project_background_substep_four').hasClass('content_substep_available')){
             }else{
-                $('#content_step_project_background_substep_four').addClass('progress_bar_available');
+                $('#content_step_project_background_substep_four').addClass('content_substep_available');
             }
         }
         if(completedSteps[i] === "1.4"){
@@ -346,56 +348,72 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         if(currentStep === "1.1"){
             // SubStep Progress Bar
             if($('#content_step_project_background_substep_one').hasClass('content_substep_inactive')){
-                $('#content_step_project_background_substep_one').removeClass('progress_bar_inactive');
+                $('#content_step_project_background_substep_one').removeClass('content_substep_inactive');
             }
-            if($('#content_step_project_background_substep_one').hasClass('progress_bar_available')){
-                $('#content_step_project_background_substep_one').removeClass('progress_bar_inactive');
+            if($('#content_step_project_background_substep_one').hasClass('content_substep_available')){
+                $('#content_step_project_background_substep_one').removeClass('content_substep_available');
             }
-            if($('#content_step_project_background_substep_one').hasClass('progress_bar_active')){
+            if($('#content_step_project_background_substep_one').hasClass('content_substep_active')){
             }else{
-                $('#content_step_project_background_substep_one').addClass('progress_bar_active');
+                $('#content_step_project_background_substep_one').addClass('content_substep_active');
             }
             // Clear Questions
-            // TODO: UPDATE HERE
+            $('#project_background_assessors').prop('value', "");
+            $('#project_background_assessors_date').prop('value', "");
+            $('#project_background_scientific_name').prop('value', "");
+            $('#project_background_common_name').prop('value', "");
+            $('#project_background_scale').prop('value', "");
+            $('#project_background_PRISMWMA').prop('value', "");
+            $('#project_background_conservation_target_impacted').prop('value', "");
+            $('#project_background_project_area_name').prop('value', "");
+            $('#project_background_project_area_size').prop('value', "");
+            $('#project_background_property_owners').prop('value', "");
+            $('#project_background_project_state').prop('value', "");
+            $('#project_background_project_county').prop('value', "");
+            $('#project_background_project_coord_x').prop('value', "");
+            $('#project_background_project_coord_y').prop('value', "");
+            $('#project_background_project_coord_system').prop('value', "");
+            $('#project_background_project_goal').prop('value', "");
         }else if(currentStep === "1.2"){
+            console.log('current step 1.2');
             // SubStep Progress Bar
             if($('#content_step_project_background_substep_two').hasClass('content_substep_inactive')){
-                $('#content_step_project_background_substep_two').removeClass('progress_bar_inactive');
+                $('#content_step_project_background_substep_two').removeClass('content_substep_inactive');
             }
-            if($('#content_step_project_background_substep_two').hasClass('progress_bar_available')){
-                $('#content_step_project_background_substep_two').removeClass('progress_bar_inactive');
+            if($('#content_step_project_background_substep_two').hasClass('content_substep_available')){
+                $('#content_step_project_background_substep_two').removeClass('content_substep_available');
             }
-            if($('#content_step_project_background_substep_two').hasClass('progress_bar_active')){
+            if($('#content_step_project_background_substep_two').hasClass('content_substep_active')){
             }else{
-                $('#content_step_project_background_substep_two').addClass('progress_bar_active');
+                $('#content_step_project_background_substep_two').addClass('content_substep_active');
             }
             // Clear Questions
             // TODO: UPDATE HERE
         }else if(currentStep === "1.3"){
             // SubStep Progress Bar
             if($('#content_step_project_background_substep_three').hasClass('content_substep_inactive')){
-                $('#content_step_project_background_substep_three').removeClass('progress_bar_inactive');
+                $('#content_step_project_background_substep_three').removeClass('content_substep_inactive');
             }
-            if($('#content_step_project_background_substep_three').hasClass('progress_bar_available')){
-                $('#content_step_project_background_substep_three').removeClass('progress_bar_inactive');
+            if($('#content_step_project_background_substep_three').hasClass('content_substep_available')){
+                $('#content_step_project_background_substep_three').removeClass('content_substep_available');
             }
-            if($('#content_step_project_background_substep_three').hasClass('progress_bar_active')){
+            if($('#content_step_project_background_substep_three').hasClass('content_substep_active')){
             }else{
-                $('#content_step_project_background_substep_three').addClass('progress_bar_active');
+                $('#content_step_project_background_substep_three').addClass('content_substep_active');
             }
             // Clear Questions
             // TODO: UPDATE HERE
         }else if(currentStep === "1.4"){
             // SubStep Progress Bar
             if($('#content_step_project_background_substep_four').hasClass('content_substep_inactive')){
-                $('#content_step_project_background_substep_four').removeClass('progress_bar_inactive');
+                $('#content_step_project_background_substep_four').removeClass('content_substep_inactive');
             }
-            if($('#content_step_project_background_substep_four').hasClass('progress_bar_available')){
-                $('#content_step_project_background_substep_four').removeClass('progress_bar_inactive');
+            if($('#content_step_project_background_substep_four').hasClass('content_substep_available')){
+                $('#content_step_project_background_substep_four').removeClass('content_substep_available');
             }
-            if($('#content_step_project_background_substep_four').hasClass('progress_bar_active')){
+            if($('#content_step_project_background_substep_four').hasClass('content_substep_active')){
             }else{
-                $('#content_step_project_background_substep_four').addClass('progress_bar_active');
+                $('#content_step_project_background_substep_four').addClass('content_substep_active');
             }
             // Clear Questions
             // TODO: UPDATE HERE
@@ -766,49 +784,64 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     for(var i=0; i<completedStepsLength; i++){
         if(completedSteps[i] === "1.1"){
             // Load Question Answers
-            projectBackgroundAssessorsAnswer = cookieData.projectBackgroundAssesors;
-            projectBackgroundAssessorsDateAnswer = cookieData.projectBackgroundAssessorsDate;
-            projectBackgroundScientificNameAnswer = cookieData.projectBackgroundScientificName;
-            projectBackgroundCommonNameAnswer = cookieData.projectBackgroundCommonName;
-            projectBackgroundScaleAnswer = cookieData.projectBackgroundScale;
-            projectBackgroundPRISMWMAAnswer = cookieData.projectBackgroundPRISMWMA;
-            projectBackgroundConservationTargetImpactedAnswer = cookieData.projectBackgroundConservationTargetImpacted;
-            projectBackgroundProjectAreaNameAnswer = cookieData.projectBackgroundProjectAreaName;
-            projectBackgroundProjectAreaSizeAnswer = cookieData.projectBackgroundProjectAreaSize;
-            projectBackgroundPropertyOwnersAnswer = cookieData.projectBackgroundPropertyOwners;
-            projectBackgroundProjectStateAnswer = cookieData.projectBackgroundProjectState;
-            projectBackgroundProjectCountyAnswer = cookieData.projectBackgroundProjectCounty;
-            projectBackgroundProjectCoordXAnswer = cookieData.projectBackgroundProjectCoordX;
-            projectBackgroundProjectCoordYAnswer = cookieData.projectBackgroundProjectCoordY;
-            projectBackgroundProjectCoordSystemAnswer = cookieData.projectBackgroundProjectCoordSystem;
-            projectBackgroundProjectGoalAnswer = cookieData.projectBackgroundProjectGoal;
+            console.log(cookieData);
+            projectBackgroundArray.projectBackgroundAssessorsAnswer = cookieData.projectBackgroundAssessors;
+            projectBackgroundArray.projectBackgroundAssessorsDateAnswer = cookieData.projectBackgroundAssessorsDate;
+            projectBackgroundArray.projectBackgroundScientificNameAnswer = cookieData.projectBackgroundScientificName;
+            projectBackgroundArray.projectBackgroundCommonNameAnswer = cookieData.projectBackgroundCommonName;
+            projectBackgroundArray.projectBackgroundScaleAnswer = cookieData.projectBackgroundScale;
+            projectBackgroundArray.projectBackgroundPRISMWMAAnswer = cookieData.projectBackgroundPRISMWMA;
+            projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer = cookieData.projectBackgroundConservationTargetImpacted;
+            projectBackgroundArray.projectBackgroundProjectAreaNameAnswer = cookieData.projectBackgroundProjectAreaName;
+            projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer = cookieData.projectBackgroundProjectAreaSize;
+            projectBackgroundArray.projectBackgroundPropertyOwnersAnswer = cookieData.projectBackgroundPropertyOwners;
+            projectBackgroundArray.projectBackgroundProjectStateAnswer = cookieData.projectBackgroundProjectState;
+            projectBackgroundArray.projectBackgroundProjectCountyAnswer = cookieData.projectBackgroundProjectCounty;
+            projectBackgroundArray.projectBackgroundProjectCoordXAnswer = cookieData.projectBackgroundProjectCoordX;
+            projectBackgroundArray.projectBackgroundProjectCoordYAnswer = cookieData.projectBackgroundProjectCoordY;
+            projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer = cookieData.projectBackgroundProjectCoordSystem;
+            projectBackgroundArray.projectBackgroundProjectGoalAnswer = cookieData.projectBackgroundProjectGoal;
             
-            // Clear Fields
             // Populate Fields w/ values
-            // TODO: UPDATE HERE
+            $('#project_background_assessors').prop('value', projectBackgroundArray.projectBackgroundAssessorsAnswer);
+            $('#project_background_assessors_date').prop('value', projectBackgroundArray.projectBackgroundAssessorsDateAnswer);
+            $('#project_background_scientific_name').prop('value', projectBackgroundArray.projectBackgroundScientificNameAnswer);
+            $('#project_background_common_name').prop('value', projectBackgroundArray.projectBackgroundCommonNameAnswer);
+            $('#project_background_scale').prop('value', projectBackgroundArray.projectBackgroundScaleAnswer);
+            $('#project_background_PRISMWMA').prop('value', projectBackgroundArray.projectBackgroundPRISMWMAAnswer);
+            $('#project_background_conservation_target_impacted').prop('value', projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer);
+            $('#project_background_project_area_name').prop('value', projectBackgroundArray.projectBackgroundProjectAreaNameAnswer);
+            $('#project_background_project_area_size').prop('value', projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer);
+            $('#project_background_property_owners').prop('value', projectBackgroundArray.projectBackgroundPropertyOwnersAnswer);
+            $('#project_background_project_state').prop('value', projectBackgroundArray.projectBackgroundProjectStateAnswer);
+            $('#project_background_project_county').prop('value', projectBackgroundArray.projectBackgroundProjectCountyAnswer);
+            $('#project_background_project_coord_x').prop('value', projectBackgroundArray.projectBackgroundProjectCoordXAnswer);
+            $('#project_background_project_coord_y').prop('value', projectBackgroundArray.projectBackgroundProjectCoordYAnswer);
+            $('#project_background_project_coord_system').prop('value', projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer);
+            $('#project_background_project_goal').prop('value', projectBackgroundArray.projectBackgroundProjectGoalAnswer);
         }
         if(completedSteps[i] === "1.2"){
-            projectBackgroundNumberOfYearsToCompleteAnswer = cookieData.projectBackgroundNumberOfYearsToComplete;
-            projectBackgroundStartDateAnswer = cookieData.projectBackgroundStartDate;
-            projectBackgroundEndDateAnswer = cookieData.projectBackgroundEndDate;
-            projectBackgroundOngoingProjectAnswer = cookieData.projectBackgroundOngoingProject;
-            projectBackgroundControlRequiredAnswer = cookieData.projectBackgroundControlRequired;
+            projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = cookieData.projectBackgroundNumberOfYearsToComplete;
+            projectBackgroundArray.projectBackgroundStartDateAnswer = cookieData.projectBackgroundStartDate;
+            projectBackgroundArray.projectBackgroundEndDateAnswer = cookieData.projectBackgroundEndDate;
+            projectBackgroundArray.projectBackgroundOngoingProjectAnswer = cookieData.projectBackgroundOngoingProject;
+            projectBackgroundArray.projectBackgroundControlRequiredAnswer = cookieData.projectBackgroundControlRequired;
 
             // Clear Fields
             // Populate Fields w/ values
             // TODO: UPDATE HERE
         }
         if(completedSteps[i] === "1.3"){
-            projectBackgroundNetInvadedAreaAnswer = cookieData.projectBackgroundNetInvadedArea;
-            projectBackgroundNumberOfOccurancesAnswer = cookieData.projectBackgroundNumberOfOccurances;
+            projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = cookieData.projectBackgroundNetInvadedArea;
+            projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = cookieData.projectBackgroundNumberOfOccurances;
 
             // Clear Fields
             // Populate Fields w/ values
             // TODO: UPDATE HERE
         }
         if(completedSteps[i] === "1.4"){
-            projectBackgroundImapShareResultsAnswer = cookieData.projectBackgroundImapShareResults;
-            projectBackgroundImapAccountAnswer = cookieData.projectBackgroundImapAccount;
+            projectBackgroundArray.projectBackgroundImapShareResultsAnswer = cookieData.projectBackgroundImapShareResults;
+            projectBackgroundArray.projectBackgroundImapAccountAnswer = cookieData.projectBackgroundImapAccount;
 
             // Clear Fields
             // Populate Fields w/ values
@@ -940,7 +973,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             projectBackgroundProjectCounty: projectBackgroundArray.projectBackgroundProjectCountyAnswer,
             projectBackgroundProjectCoordX: projectBackgroundArray.projectBackgroundProjectCoordXAnswer,
             projectBackgroundProjectCoordY: projectBackgroundArray.projectBackgroundProjectCoordYAnswer,
-            projectBackgroundProjectCoordSystem: projectBackgroundArray.projectBackgroundCoordSystemAnswer,
+            projectBackgroundProjectCoordSystem: projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer,
             projectBackgroundProjectGoal: projectBackgroundArray.projectBackgroundProjectGoalAnswer
         };
         if((projectBackgroundArray.projectBackgroundAssessorsAnswer !== null)&&
