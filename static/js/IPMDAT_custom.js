@@ -217,6 +217,16 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
     }
     for(var i=0; i<completedSteps.length; i++){
         if(completedSteps[i] === "1.1"){
+            if($('#content_step_project_background_substep_one').hasClass('content_substep_active')){
+                $('#content_step_project_background_substep_one').removeClass('content_substep_active');
+            }
+            if($('#content_step_project_background_substep_one').hasClass('content_substep_inactive')){
+                $('#content_step_project_background_substep_one').removeClass('content_substep_inactive');
+            }
+            if($('#content_step_project_background_substep_one').hasClass('content_substep_available')){
+            }else{
+                $('#content_step_project_background_substep_one').addClass('content_substep_available');
+            }
             if($('#content_step_project_background_substep_two').hasClass('content_substep_active')){
                 $('#content_step_project_background_substep_two').removeClass('content_substep_active');
             }
@@ -375,7 +385,6 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             $('#project_background_project_coord_system').prop('value', "");
             $('#project_background_project_goal').prop('value', "");
         }else if(currentStep === "1.2"){
-            console.log('current step 1.2');
             // SubStep Progress Bar
             if($('#content_step_project_background_substep_two').hasClass('content_substep_inactive')){
                 $('#content_step_project_background_substep_two').removeClass('content_substep_inactive');
@@ -388,7 +397,11 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
                 $('#content_step_project_background_substep_two').addClass('content_substep_active');
             }
             // Clear Questions
-            // TODO: UPDATE HERE
+            $('#project_background_number_of_years_to_complete').prop('value', "");
+            $('#project_background_start_date').prop('value', "");
+            $('#project_background_end_date').prop('value', "");
+            $('#project_background_ongoing_project').prop('value', "");
+            $('#project_background_control_required').prop('value', "");
         }else if(currentStep === "1.3"){
             // SubStep Progress Bar
             if($('#content_step_project_background_substep_three').hasClass('content_substep_inactive')){
@@ -402,7 +415,9 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
                 $('#content_step_project_background_substep_three').addClass('content_substep_active');
             }
             // Clear Questions
-            // TODO: UPDATE HERE
+            $('#project_background_gross_invaded_area').prop('value', "");
+            $('#project_background_net_invaded_area').prop('value', "");
+            $('#project_background_number_of_occurances').prop('value', "");
         }else if(currentStep === "1.4"){
             // SubStep Progress Bar
             if($('#content_step_project_background_substep_four').hasClass('content_substep_inactive')){
@@ -416,7 +431,8 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
                 $('#content_step_project_background_substep_four').addClass('content_substep_active');
             }
             // Clear Questions
-            // TODO: UPDATE HERE
+            $('#project_background_imap_share_results').prop('value', "");
+            $('#project_background_imap_account').prop('value', "");
         }
         
         // Execute Step Function
@@ -679,11 +695,80 @@ function IPMDAT_Init(){
         cookieData.projectBackgroundProjectGoal = savedData.projectBackgroundProjectGoal;
     }else{ stepFail = true; }
 
-    
     // 1.1
     if(stepFail === false){
         completedSteps.push("1.1");
     }
+    stepFail = false;
+
+    //projectBackgroundNumberOfYearsToComplete
+    if(savedData.projectBackgroundNumberOfYearsToComplete !== null){
+        cookieData.projectBackgroundNumberOfYearsToComplete = savedData.projectBackgroundNumberOfYearsToComplete;
+    }else{ stepFail = true; }
+
+    //projectBackgroundStartDate
+    if(savedData.projectBackgroundStartDate !== null){
+        cookieData.projectBackgroundStartDate = savedData.projectBackgroundStartDate;
+    }else{ stepFail = true; }
+
+    //projectBackgroundEndDate
+    if(savedData.projectBackgroundEndDate !== null){
+        cookieData.projectBackgroundEndDate = savedData.projectBackgroundEndDate;
+    }else{ stepFail = true; }
+
+    //projectBackgroundOngoingProject
+    if(savedData.projectBackgroundOngoingProject !== null){
+        cookieData.projectBackgroundOngoingProject = savedData.projectBackgroundOngoingProject;
+    }else{ stepFail = true; }
+
+    //projectBackgroundControlRequired
+    if(savedData.projectBackgroundControlRequired !== null){
+        cookieData.projectBackgroundControlRequired = savedData.projectBackgroundControlRequired;
+    }else{ stepFail = true; }
+
+    // 1.2
+    if(stepFail === false){
+        completedSteps.push("1.2");
+    }
+    stepFail = false;
+
+    //projectBackgroundGrossInvadedArea
+    if(savedData.projectBackgroundGrossInvadedArea !== null){
+        cookieData.projectBackgroundGrossInvadedArea = savedData.projectBackgroundGrossInvadedArea;
+    }else{ stepFail = true; }
+
+    //projectBackgroundNetInvadedArea
+    if(savedData.projectBackgroundNetInvadedArea !== null){
+        cookieData.projectBackgroundNetInvadedArea = savedData.projectBackgroundNetInvadedArea;
+    }else{ stepFail = true; }
+
+    //projectBackgroundNumberOfOccurances
+    if(savedData.projectBackgroundNumberOfOccurances !== null){
+        cookieData.projectBackgroundNumberOfOccurances = savedData.projectBackgroundNumberOfOccurances;
+    }else{ stepFail = true; }
+
+    // 1.3
+    if(stepFail === false){
+        completedSteps.push("1.3");
+    }
+    stepFail = false;
+
+    //projectBackgroundImapShareResults
+    if(savedData.projectBackgroundImapShareResults !== null){
+        cookieData.projectBackgroundImapShareResults = savedData.projectBackgroundImapShareResults;
+    }else{ stepFail = true; }
+
+    //projectBackgroundImapAccount
+    if(savedData.projectBackgroundImapAccount !== null){
+        cookieData.projectBackgroundImapAccount = savedData.projectBackgroundImapAccount;
+    }else{ stepFail = true; }
+
+    // 1.4
+    if(stepFail === false){
+        completedSteps.push("1.4");
+    }
+    stepFail = false;
+    
     //------------------------------------------------------------------------\\
     // Strategy Selection                                                     \\
     //------------------------------------------------------------------------\\
@@ -784,7 +869,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     for(var i=0; i<completedStepsLength; i++){
         if(completedSteps[i] === "1.1"){
             // Load Question Answers
-            console.log(cookieData);
             projectBackgroundArray.projectBackgroundAssessorsAnswer = cookieData.projectBackgroundAssessors;
             projectBackgroundArray.projectBackgroundAssessorsDateAnswer = cookieData.projectBackgroundAssessorsDate;
             projectBackgroundArray.projectBackgroundScientificNameAnswer = cookieData.projectBackgroundScientificName;
@@ -827,25 +911,30 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             projectBackgroundArray.projectBackgroundOngoingProjectAnswer = cookieData.projectBackgroundOngoingProject;
             projectBackgroundArray.projectBackgroundControlRequiredAnswer = cookieData.projectBackgroundControlRequired;
 
-            // Clear Fields
             // Populate Fields w/ values
-            // TODO: UPDATE HERE
+            $('#project_background_number_of_years_to_complete').prop('value', projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer);
+            $('#project_background_start_date').prop('value', projectBackgroundArray.projectBackgroundStartDateAnswer);
+            $('#project_background_end_date').prop('value', projectBackgroundArray.projectBackgroundEndDateAnswer);
+            $('#project_background_ongoing_project').prop('value', projectBackgroundArray.projectBackgroundOngoingProjectAnswer);
+            $('#project_background_control_required').prop('value', projectBackgroundArray.projectBackgroundControlRequiredAnswer);
         }
         if(completedSteps[i] === "1.3"){
+            projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = cookieData.projectBackgroundGrossInvadedArea;
             projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = cookieData.projectBackgroundNetInvadedArea;
             projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = cookieData.projectBackgroundNumberOfOccurances;
 
-            // Clear Fields
             // Populate Fields w/ values
-            // TODO: UPDATE HERE
+            $('#project_background_gross_invaded_area').prop('value', projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer);
+            $('#project_background_net_invaded_area').prop('value', projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer);
+            $('#project_background_number_of_occurances').prop('value', projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer);
         }
         if(completedSteps[i] === "1.4"){
             projectBackgroundArray.projectBackgroundImapShareResultsAnswer = cookieData.projectBackgroundImapShareResults;
             projectBackgroundArray.projectBackgroundImapAccountAnswer = cookieData.projectBackgroundImapAccount;
 
-            // Clear Fields
             // Populate Fields w/ values
-            // TODO: UPDATE HERE
+            $('#project_background_imap_share_results').prop('value', projectBackgroundArray.projectBackgroundImapShareResultsAnswer);
+            $('#project_background_imap_account').prop('value', projectBackgroundArray.projectBackgroundImapAccountAnswer);
         }
     }
 
@@ -904,7 +993,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
-                // TODO: UPDATE HERE
+                $('#content_step_project_background_substep_three').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
         }else if((form_array.projectBackgroundNumberOfYearsToCompleteAnswer === null)||
             (form_array.projectBackgroundStartDateAnswer === null)||
@@ -914,7 +1003,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             if($('#content_nav_forward').hasClass('content_nav_base_active')){
                 $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
                 // Progress Bar
-                // TODO: UPDATE HERE
+                $('#content_step_project_background_substep_three').removeClass('content_substep_available').addClass('content_substep_inactive');
             } 
         }
     };
@@ -925,7 +1014,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
-                // TODO: UPDATE HERE
+                $('#content_step_project_background_substep_four').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
 
         }else if((form_array.projectBackgroundGrossInvadedAreaAnswer === null)||
@@ -934,7 +1023,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             if($('#content_nav_forward').hasClass('content_nav_base_active')){
                 $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
                 // Progress Bar
-                // TODO: UPDATE HERE
+                $('#content_step_project_background_substep_four').removeClass('content_substep_available').addClass('content_substep_inactive');
             } 
         }
     };
@@ -944,14 +1033,14 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
-                // TODO: UPDATE HERE
+                $('#content_progress_bar_strategy_selection').removeClass('progress_bar_inactive').addClass('progress_bar_available');
             }
         }else if((form_array.projectBackgroundImapShareResultsAnswer === null)||
             (form_array.projectBackgroundImapAccountAnswer === null)){
             if($('#content_nav_forward').hasClass('content_nav_base_active')){
                 $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
                 // Progress Bar
-                // TODO: UPDATE HERE
+                $('#content_progress_bar_strategy_selection').removeClass('progress_bar_available').addClass('progress_bar_inactive');
             } 
         }
     };
@@ -1230,16 +1319,16 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = $('#project_background_number_of_years_to_complete').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Two_Check(projectBackgroundArray);
         });
         $('#project_background_start_date').keyup(function(){
             if($('#project_background_start_date').prop('value') === ""){
                 projectBackgroundArray.projectBackgroundStartDateAnswer = null;
             }else{
-                projectBackgroundArray.projectBackgroundStartDateAnswer = $('#project_background_start_date_answer').val();
+                projectBackgroundArray.projectBackgroundStartDateAnswer = $('#project_background_start_date').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Two_Check(projectBackgroundArray);
         });
         $('#project_background_end_date').keyup(function(){
             if($('#project_background_end_date').prop('value') === ""){
@@ -1248,7 +1337,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundEndDateAnswer = $('#project_background_end_date').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Two_Check(projectBackgroundArray);
         });
         $('#project_background_ongoing_project').keyup(function(){
             if($('#project_background_ongoing_project').prop('value') === ""){
@@ -1257,7 +1346,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundOngoingProjectAnswer = $('#project_background_ongoing_project').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Two_Check(projectBackgroundArray);
         });
         $('#project_background_control_required').keyup(function(){
             if($('#project_background_control_required').prop('value') === ""){
@@ -1266,7 +1355,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundControlRequiredAnswer = $('#project_background_control_required').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Two_Check(projectBackgroundArray);
         });
     }else if(currentStep === "1.3"){
         Project_Background_Substep_Three_Check(projectBackgroundArray);
@@ -1278,7 +1367,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = $('#project_background_gross_invaded_area').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Three_Check(projectBackgroundArray);
         });
         $('#project_background_net_invaded_area').keyup(function(){
             if($('#project_background_net_invaded_area').prop('value') === ""){
@@ -1287,7 +1376,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = $('#project_background_net_invaded_area').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Three_Check(projectBackgroundArray);
         });
         $('#project_background_number_of_occurances').keyup(function(){
             if($('#project_background_number_of_occurances').prop('value') === ""){
@@ -1296,7 +1385,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = $('#project_background_number_of_occurances').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Three_Check(projectBackgroundArray);
         });
     }else if(currentStep === "1.4"){
         Project_Background_Substep_Four_Check(projectBackgroundArray);
@@ -1308,7 +1397,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundImapShareResultsAnswer = $('#project_background_imap_share_results').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Four_Check(projectBackgroundArray);
         });
         $('#project_background_imap_account').keyup(function(){
             if($('#project_background_imap_account').prop('value') === ""){
@@ -1317,7 +1406,7 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundImapAccountAnswer = $('#project_background_imap_account').val();
             }
             // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
+            Project_Background_Substep_Four_Check(projectBackgroundArray);
         });
     }
 
