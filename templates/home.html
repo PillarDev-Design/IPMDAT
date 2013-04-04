@@ -53,6 +53,7 @@
                         <div id='project_background_assessors_label' class='content_step_question_label_scheme'>
                             Assessor(s) Name:
                         </div>
+                        <div class='content_required_field'>(*)</div>
                         <div id='project_background_assessors_content' class='content_step_question_content_scheme'>
                             <input id='project_background_assessors' class='content_step_question_text_input_scheme' type='text'></input>
                         </div>
@@ -216,6 +217,7 @@
                     <div id='project_background_number_of_years_to_complete_label' class='content_step_question_label_scheme'>
                         Number of years to complete project:
                     </div>
+                    <div class='content_required_field'>(*)</div>
                     <div id='project_background_number_of_years_to_complete_content' class='content_step_question_content_scheme'>
                         <input id='project_background_number_of_years_to_complete' class='content_step_question_text_input_scheme' type='text'></input>
                     </div>
@@ -263,6 +265,7 @@
                     <div id='project_background_gross_invaded_area_label' class='content_step_question_label_scheme'>
                         Gross Invaded Area:
                     </div>
+                    <div class='content_required_field'>(*)</div>
                     <div id='project_background_gross_invaded_area_content' class='content_step_question_content_scheme'>
                         <input id='project_background_gross_invaded_area' class='content_step_question_text_input_scheme' type='text'></input>
                     </div>
@@ -292,6 +295,7 @@
                     <div id='project_background_imap_share_results_label' class='content_step_question_label_scheme'>
                         Do you want to share your results on iMapInvasives?
                     </div>
+                    <div class='content_required_field'>(*)</div>
                     <div id='project_background_imap_share_results_content' class='content_step_question_content_scheme'>
                         <input id='project_background_imap_share_results' class='content_step_question_text_input_scheme' type='text'></input>
                     </div>
@@ -308,6 +312,90 @@
                 </div> <!-- END project_background_imap_account_container -->
             </div> <!-- END content_step_imapinvasives_content_container -->
         </div> <!-- END content_step_project_background_container -->
+        <div id='content_step_strategy_selection_container' class='content_step_scheme content_step_inactive'>
+            <div id='content_step_strategy_selection_substep_container' class='content_substep_container_scheme'>
+                <div id='content_step_strategy_selection_substep_one' class='content_substep_scheme content_substep_active'>
+                    •
+                </div>
+                <div id='content_step_strategy_selection_substep_two' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div id='content_step_strategy_selection_substep_three' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div id='content_step_strategy_selection_substep_four' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div class='clear'></div>
+            </div> <!-- END content_step_strategy_selection_substep_container -->
+            <div class='clear'></div>
+            <div id='content_step_strategy_selection_content_container' class='content_step_content_container_scheme content_step_content_container_inactive'>
+                <div id='strategy_selection_NYS_score_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_NYS_score_label' class='content_step_question_label_scheme'>
+                        Total NYS Ecological Impact Score (Max 40):
+                    </div>
+                    <div class='content_required_field'>(*)</div>
+                    <div id='strategy_selection_NYS_score_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_NYS_score' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_NYS_score_container -->
+                <div id='strategy_selection_ecological_impact_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_ecological_impact_label' class='content_step_question_label_scheme'>
+                        Significant ecological impact:
+                    </div>
+                    <div id='strategy_selection_ecological_impact_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_ecological_impact' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_ecological_impact_container -->
+                <div id='strategy_selection_limited_distribution_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_limited_distribution_label' class='content_step_question_label_scheme'>
+                        Ecological impact uncertain, limited state wide distribution:
+                    </div>
+                    <div id='strategy_selection_limited_distribution_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_limited_distribution' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_limited_distribution_container -->
+                <div id='strategy_selection_widespread_distribution_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_widespread_distribution_label' class='content_step_question_label_scheme'>
+                        Ecological impact uncertain, widespread state wide distribution:
+                    </div>
+                    <div id='strategy_selection_widespread_distribution_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_widespread_distribution' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_widespread_distribution_container -->
+                <div id='strategy_selection_negligible_impact_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_negligible_impact_label' class='content_step_question_label_scheme'>
+                        Neglibible impact or harm:
+                    </div>
+                    <div id='strategy_selection_negligible_impact_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_negligible_impact' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_negligible_impact_container -->
+                <div id='strategy_selection_significant_harm_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_significant_harm_label' class='content_step_question_label_scheme'>
+                        Significant harm to human health, economy, or other values:
+                    </div>
+                    <div id='strategy_selection_significant_harm_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_significant_harm' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_significant_harm_container -->
+                <div id='strategy_selection_documentation_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_documentation_label' class='content_step_question_label_scheme'>
+                        Documentation:
+                    </div>
+                    <div id='strategy_selection_documentation_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_documentation' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_documentation_container -->
+            </div> <!-- END content_step_strategy_selection_content_container -->
+        </div> <!-- END content_step_strategy_selection_container -->
     </div> <!-- END content_container -->
     <div id='content_nav_forward' class='content_nav_base_style content_nav_base_inactive'>»</div>
     <div class='clear'></div>

@@ -202,6 +202,11 @@ body, html{
         -moz-box-shadow: 5px 5px 20px #CCC;
         -webkit-box-shadow: 5px 5px 20px #CCC;
     }
+        .content_required_field{
+            color: red;
+            float: left;
+            position: relative;
+        }
         .content_substep_scheme{
             /* Dark Grey */
             border-left: 2px solid #8E8E8E;
