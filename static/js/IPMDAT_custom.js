@@ -469,7 +469,7 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
         
         // Execute Step Function
         JSON_Cookie_Step_Project_Background(cookieData, completedSteps, currentStep);
-    }else if((currentStep === "2.1")||(currentStep === "2.2")||(currentStep === "2.3"||(currentStep === "2.4")){
+    }else if((currentStep === "2.1")||(currentStep === "2.2")||(currentStep === "2.3")||(currentStep === "2.4")){
         // Main Progress Bars
         if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_inactive')){
             $('#content_progress_bar_strategy_selection').removeClass('progress_bar_inactive');
