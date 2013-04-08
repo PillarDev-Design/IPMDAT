@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8' />
+    <title>IPMDAT [dev]</title>
+    <!-- JavaScript Imports -->
+    <script type='text/javascript' src='/static/js/jquery-1.9.1.min.js'></script>
+    <script type='text/javascript' src='/static/js/JSON_Cookie_Steps_util.js'></script>
+    <script type='text/javascript' src='/static/js/IPMDAT_custom.js'></script>
+    <script type='text/javascript' src='/static/js/jsDatePick.min.1.3.js'></script>
+    <!-- CSS Imports -->
+    <link href='/static/css/IPMDAT_style.css' rel='stylesheet' type='text/css' />
+    <link href='/static/css/jsDatePick_ltr.min.css' rel='stylesheet' type='text/css' media='all' />
+</head>
+<body>
+<div id='site_container'>
+<div id='site_content'>
+    <div id='content_header_container'>
+        <div id='content_header_label'>
+            IPMDAT
+        </div> <!-- END content_header_label -->
+        <div class='clear'></div>
+    </div> <!-- END content_header_container -->
+    <div id='content_progress_bar_container'>
+        <div id='content_progress_bar_project_background' class='progress_bar_base_style progress_bar_active'>
+            Project Background
+        </div>
+        <div id='content_progress_bar_strategy_selection' class='progress_bar_base_style progress_bar_inactive progress_bar_padding_top'>
+            Strategy Selection
+        </div>
+        <div id='content_progress_bar_eradication' class='progress_bar_base_style progress_bar_inactive progress_bar_padding_top'>
+            Eradication
+        </div>
+        <div id='content_progress_bar_containment' class='progress_bar_base_style progress_bar_inactive progress_bar_padding_top'>
+            Containment
+        </div>
+        <div id='content_progress_bar_suppression' class='progress_bar_base_style progress_bar_inactive progress_bar_padding_top'>
+            Suppression
+        </div>
+        <div id='content_progress_bar_recommendation_summary' class='progress_bar_base_style progress_bar_inactive'>
+            Recommendation Summary
+        </div>
+    </div> <!-- END content_progress_bar_container -->
+    <div id='content_nav_back' class='content_nav_base_style content_nav_base_inactive'>«</div>
+    <div id='content_container'>
+        <div id='content_step_project_background_container' class='content_step_scheme content_step_active'>
+            <div id='content_step_project_background_substep_container' class='content_substep_container_scheme'>
+                <div id='content_step_project_background_substep_one' class='content_substep_scheme content_substep_active'>
+                    •
+                </div>
+                <div id='content_step_project_background_substep_two' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div id='content_step_project_background_substep_three' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div id='content_step_project_background_substep_four' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div class='clear'></div>
+            </div> <!-- END content_step_project_background_substep_container -->
+            <div class='clear'></div>
+            <div id='content_step_project_background_content_container' class='content_step_content_container_scheme content_step_content_container_active'>
+                <div class='content_two_part_question_container'>
+                    <div id='project_background_assessors_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_assessors_label' class='content_step_question_label_scheme'>
+                            Assessor(s) Name:
+                        </div>
+                        <div class='content_required_field'>(*)</div>
+                        <div id='project_background_assessors_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_assessors' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_assessors_container -->
+                    <div id='project_background_assessors_date_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_assessors_date_label' class='content_step_question_label_scheme'>
+                            Date:
+                        </div>
+                        <div id='project_background_assessors_date_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_assessors_date' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_assessors_date_container -->
+                    <div class='clear'></div>
+                </div> <!-- END group container -->
+                <div class='content_two_part_question_container'>
+                    <div id='project_background_scientific_name_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_scientific_name_label' class='content_step_question_label_scheme'>
+                            Scientific Name:
+                        </div>
+                        <div id='project_background_scientific_name_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_scientific_name' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_scientific_name_container -->
+                    <div id='project_background_common_name_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_common_name_label' class='content_step_question_label_scheme'>
+                            Common Name:
+                        </div>
+                        <div id='project_background_common_name_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_common_name' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_common_name_container -->
+                    <div class='clear'></div>
+                </div> <!-- END group container -->
+                <div class='content_two_part_question_container'>
+                    <div id='project_background_scale_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_scale_label' class='content_step_question_label_scheme'>
+                            Scale:
+                        </div>
+                        <div id='project_background_scale_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_scale' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_scale_container -->
+                    <div id='project_background_PRISMWMA_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_PRISMWMA_label' class='content_step_question_label_scheme'>
+                            PRISM/WMA:
+                        </div>
+                        <div id='project_background_PRISMWMA_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_PRISMWMA' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_PRISMWMA_container -->
+                    <div class='clear'></div>
+                </div> <!-- END group container -->
+                <div id='project_background_conservation_target_impacted_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_conservation_target_impacted_label' class='content_step_question_label_scheme'>
+                        Conservation Target Impacted:
+                    </div>
+                    <div id='project_background_conservation_target_impacted_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_conservation_target_impacted' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_conservation_target_impacted_container -->
+                <div class='content_two_part_question_container'>
+                    <div id='project_background_project_area_name_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_project_area_name_label' class='content_step_question_label_scheme'>
+                            Project Area (site) Name:
+                        </div>
+                        <div id='project_background_project_area_name_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_project_area_name' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_project_area_name_container -->
+                    <div id='project_background_project_area_size_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_project_area_size_label' class='content_step_question_label_scheme'>
+                            Size:
+                        </div>
+                        <div id='project_background_project_area_size_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_project_area_size' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_project_area_size_container -->
+                    <div class='clear'></div>
+                </div> <!-- END group container -->
+                <div id='project_background_property_owners_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_property_owners_label' class='content_step_question_label_scheme'>
+                        Property Owner(s):
+                    </div>
+                    <div id='project_background_property_owners_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_property_owners' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_property_owners_container -->
+                <div class='content_two_part_question_container'>
+                    <div id='project_background_project_state_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_project_state_label' class='content_step_question_label_scheme'>
+                            Project State: (Drop down select)
+                        </div>
+                        <div id='project_background_project_state_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_project_state' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_project_state_container -->
+                    <div id='project_background_project_county_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_project_county_label' class='content_step_question_label_scheme'>
+                            Project County: (Dropdownselect)
+                        </div>
+                        <div id='project_background_project_county_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_project_county' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_project_county_container -->
+                    <div class='clear'></div>
+                </div> <!-- END group container -->
+                <div class='content_two_part_question_container'>
+                    <div id='project_background_project_coord_x_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_project_coord_x_label' class='content_step_question_label_scheme'>
+                            Project Coordinates - X:
+                        </div>
+                        <div id='project_background_project_coord_x_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_project_coord_x' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_project_coord_x_container -->
+                    <div id='project_background_project_coord_y_container' class='content_step_question_container_scheme two_part_question_line'>
+                        <div id='project_background_project_coord_y_label' class='content_step_question_label_scheme'>
+                            Y:
+                        </div>
+                        <div id='project_background_project_coord_y_content' class='content_step_question_content_scheme'>
+                            <input id='project_background_project_coord_y' class='content_step_question_text_input_scheme' type='text'></input>
+                        </div>
+                        <div class='clear'></div>
+                    </div> <!-- END project_background_project_coord_y_container -->
+                    <div class='clear'></div>
+                </div> <!-- END group container -->
+                <div id='project_background_project_coord_system_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_project_coord_system_label' class='content_step_question_label_scheme'>
+                        Coordinate System: (Drop down select)
+                    </div>
+                    <div id='project_background_project_coord_system_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_project_coord_system' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_project_coord_system_container -->
+                <div id='project_background_project_goal_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_project_goal_label' class='content_step_question_label_scheme'>
+                        Project Goal: (255 char)
+                    </div>
+                    <div id='project_background_project_goal_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_project_goal' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_project_goal_container -->
+            </div> <!-- END content_step_project_background_content_container -->
+            <div id='content_step_project_timeframe_content_container' class='content_step_content_container_scheme content_step_content_container_inactive'>
+                <div id='project_background_number_of_years_to_complete_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_number_of_years_to_complete_label' class='content_step_question_label_scheme'>
+                        Number of years to complete project:
+                    </div>
+                    <div class='content_required_field'>(*)</div>
+                    <div id='project_background_number_of_years_to_complete_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_number_of_years_to_complete' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_number_of_years_to_complete_container -->
+                <div id='project_background_start_date_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_start_date_label' class='content_step_question_label_scheme'>
+                        Start Date:
+                    </div>
+                    <div id='project_background_start_date_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_start_date' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_start_date_container -->
+                <div id='project_background_end_date_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_end_date_label' class='content_step_question_label_scheme'>
+                        End Date:
+                    </div>
+                    <div id='project_background_end_date_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_end_date' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_end_date_container -->
+                <div id='project_background_ongoing_project_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_ongoing_project_label' class='content_step_question_label_scheme'>
+                        Ongoing Project:
+                    </div>
+                    <div id='project_background_ongoing_project_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_ongoing_project' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_ongoing_project_container -->
+                <div id='project_background_control_required_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_control_required_label' class='content_step_question_label_scheme'>
+                        Control Required:
+                    </div>
+                    <div id='project_background_control_required_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_control_required' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_control_required_container -->
+            </div> <!-- END content_step_project_timeframe_content_container -->
+            <div id='content_step_distribution_and_abundance_content_container' class='content_step_content_container_scheme content_step_content_container_inactive'>
+                <div id='project_background_gross_invaded_area_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_gross_invaded_area_label' class='content_step_question_label_scheme'>
+                        Gross Invaded Area:
+                    </div>
+                    <div class='content_required_field'>(*)</div>
+                    <div id='project_background_gross_invaded_area_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_gross_invaded_area' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_gross_invaded_area_container -->
+                <div id='project_background_net_invaded_area_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_net_invaded_area_label' class='content_step_question_label_scheme'>
+                        Net Invaded Area:
+                    </div>
+                    <div id='project_background_net_invaded_area_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_net_invaded_area' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_net_invaded_area_container -->
+                <div id='project_background_number_of_occurances_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_number_of_occurances_label' class='content_step_question_label_scheme'>
+                        Number Of Occurances:
+                    </div>
+                    <div id='project_background_number_of_occurances_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_number_of_occurances' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_number_of_occurances_container -->
+            </div> <!-- END content_step_distribution_and_abundance_content_container -->
+            <div id='content_step_imapinvasives_content_container' class='content_step_content_container_scheme content_step_content_container_inactive'>
+                <div id='project_background_imap_share_results_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_imap_share_results_label' class='content_step_question_label_scheme'>
+                        Do you want to share your results on iMapInvasives?
+                    </div>
+                    <div class='content_required_field'>(*)</div>
+                    <div id='project_background_imap_share_results_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_imap_share_results' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_imap_share_results_container -->
+                <div id='project_background_imap_account_container' class='content_step_question_container_scheme'>
+                    <div id='project_background_imap_account_label' class='content_step_question_label_scheme'>
+                        IMAP Account:
+                    </div>
+                    <div id='project_background_imap_account_content' class='content_step_question_content_scheme'>
+                        <input id='project_background_imap_account' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END project_background_imap_account_container -->
+            </div> <!-- END content_step_imapinvasives_content_container -->
+        </div> <!-- END content_step_project_background_container -->
+        <div id='content_step_strategy_selection_container' class='content_step_scheme content_step_inactive'>
+            <div id='content_step_strategy_selection_substep_container' class='content_substep_container_scheme'>
+                <div id='content_step_strategy_selection_substep_one' class='content_substep_scheme content_substep_active'>
+                    •
+                </div>
+                <div id='content_step_strategy_selection_substep_two' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div id='content_step_strategy_selection_substep_three' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div id='content_step_strategy_selection_substep_four' class='content_substep_scheme content_substep_inactive'>
+                    •
+                </div>
+                <div class='clear'></div>
+            </div> <!-- END content_step_strategy_selection_substep_container -->
+            <div class='clear'></div>
+            <div id='content_step_strategy_selection_content_container' class='content_step_content_container_scheme content_step_content_container_inactive'>
+                <div id='strategy_selection_NYS_score_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_NYS_score_label' class='content_step_question_label_scheme'>
+                        Total NYS Ecological Impact Score (Max 40):
+                    </div>
+                    <div class='content_required_field'>(*)</div>
+                    <div id='strategy_selection_NYS_score_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_NYS_score' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_NYS_score_container -->
+                <div id='strategy_selection_ecological_impact_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_ecological_impact_label' class='content_step_question_label_scheme'>
+                        Significant ecological impact:
+                    </div>
+                    <div id='strategy_selection_ecological_impact_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_ecological_impact' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_ecological_impact_container -->
+                <div id='strategy_selection_limited_distribution_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_limited_distribution_label' class='content_step_question_label_scheme'>
+                        Ecological impact uncertain, limited state wide distribution:
+                    </div>
+                    <div id='strategy_selection_limited_distribution_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_limited_distribution' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_limited_distribution_container -->
+                <div id='strategy_selection_widespread_distribution_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_widespread_distribution_label' class='content_step_question_label_scheme'>
+                        Ecological impact uncertain, widespread state wide distribution:
+                    </div>
+                    <div id='strategy_selection_widespread_distribution_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_widespread_distribution' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_widespread_distribution_container -->
+                <div id='strategy_selection_negligible_impact_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_negligible_impact_label' class='content_step_question_label_scheme'>
+                        Neglibible impact or harm:
+                    </div>
+                    <div id='strategy_selection_negligible_impact_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_negligible_impact' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_negligible_impact_container -->
+                <div id='strategy_selection_significant_harm_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_significant_harm_label' class='content_step_question_label_scheme'>
+                        Significant harm to human health, economy, or other values:
+                    </div>
+                    <div id='strategy_selection_significant_harm_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_significant_harm' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_significant_harm_container -->
+                <div id='strategy_selection_documentation_container' class='content_step_question_container_scheme'>
+                    <div id='strategy_selection_documentation_label' class='content_step_question_label_scheme'>
+                        Documentation:
+                    </div>
+                    <div id='strategy_selection_documentation_content' class='content_step_question_content_scheme'>
+                        <input id='strategy_selection_documentation' class='content_step_question_text_input_scheme' type='text'></input>
+                    </div>
+                    <div class='clear'></div>
+                </div> <!-- END strategy_selection_documentation_container -->
+            </div> <!-- END content_step_strategy_selection_content_container -->
+        </div> <!-- END content_step_strategy_selection_container -->
+    </div> <!-- END content_container -->
+    <div id='content_nav_forward' class='content_nav_base_style content_nav_base_inactive'>»</div>
+    <div class='clear'></div>
+</div> <!-- END site_content -->
+    
+    <!-- END block site_content -->
+    <div id='footer_container'>
+        <div id='footer_label'>
+            FREAC - IPMDAT Testing Controls - 
+            <div id='cookie_name_container'>
+                Cookie ID:
+                <input id='cookie_name' type='text' value='FREAC_JSON_Cookie'></input>
+            </div>
+            <button id='console_log'>console.log</button>
+            <button id='clear_cookie'>Clear Cookie</button>
+            <div class='clear'></div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript'>
+    // Init
+    IPMDAT_Init();
+</script>
+</body>
+</html>
