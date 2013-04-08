@@ -129,13 +129,13 @@ body, html{
             border-right: 3px solid #8E8E8E;
             cursor: pointer;
             float: left;
-            height: 71%;
-            margin-left: 41px;
-            padding-top: 3px;
+            height: 57%;
+            margin-left: 49px;
+            padding-top: 11px;
             position: relative;
             text-align: center;
             top: 4px;
-            width: 12%;
+            width: 19%;
             border-radius: 15px;
             -moz-border-radius: 15px;
             -webkit-border-radius: 15px;
@@ -271,6 +271,20 @@ body, html{
         }
         .content_step_content_container_inactive{
             display: none;
+        }
+        #strategy_selection_checkbox_container{
+            /* Lighter Blue */
+            background: #BDDCE8;
+            border: 1px solid black;
+            left: 8%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            position: relative;
+            width: 82%;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
         }
         .content_step_question_container_scheme{
             /* White */

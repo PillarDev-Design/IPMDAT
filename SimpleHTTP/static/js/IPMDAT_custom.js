@@ -45,11 +45,7 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             projectBackgroundImapAccount: null,
             // STRATEGY SELECTION (STEP 2)
             strategySelectionNYSScore: null,
-            strategySelectionEcologicalImpact: null,
-            strategySelectionLimitedDistribution: null,
-            strategySelectionWidespreadDistribution: null,
-            strategySelectionNegligibleImpact: null,
-            strategySelectionSignificantHarm: null,
+            strategySelectionCheckbox: null,
             strategySelectionDocumentation: null
             // ERADICATION (STEP 3)
             // CONTAINMENT (STEP 4)
@@ -138,15 +134,12 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
             if(stepNumber === "2.1"){
                 // Entering NEW data from cookieData
                 cookieArray.strategySelectionNYSScore = cookieData.strategySelectionNYSScore;
-                cookieArray.strategySelectionEcologicalImpact = cookieData.strategySelectionEcologicalImpact;
-                cookieArray.strategySelectionLimitedDistribution = cookieData.strategySelectionLimitedDistribution;
-                cookieArray.strategySelectionWidespreadDistribution = cookieData.strategySelectionWidespreadDistribution;
-                cookieArray.strategySelectionNegligibleImpact = cookieData.strategySelectionNegligibleImpact;
-                cookieArray.strategySelectionSignificantHarm = cookieData.strategySelectionSignificantHarm;
+                cookieArray.strategySelectionCheckbox = cookieData.strategySelectionCheckbox;
                 cookieArray.strategySelectionDocumentation = cookieData.strategySelectionDocumentation;
             }else{
                 // Recall OLD data from savedData
                 cookieArray.strategySelectionNYSScore = savedData.strategySelectionNYSScore;
+                cookieArray.strategySelectionCheckbox = savedData.strategySelectionCheckbox;
                 cookieArray.strategySelectionEcologicalImpact = savedData.strategySelectionEcologicalImpact;
                 cookieArray.strategySelectionLimitedDistribution = savedData.strategySelectionLimitedDistribution;
                 cookieArray.strategySelectionWidespreadDistribution = savedData.strategySelectionWidespreadDistribution;
@@ -506,11 +499,11 @@ function Check_Available_Steps(cookieData, completedSteps, currentStep){
             }
             // Clear Questions
             $('#strategy_selection_NYS_score').prop('value', "");
-            $('#strategy_selection_ecological_impact').prop('value', "");
-            $('#strategy_selection_limited_distribution').prop('value', "");
-            $('#strategy_selection_widespread_distribution').prop('value', "");
-            $('#strategy_selection_negligible_impact').prop('value', "");
-            $('#strategy_selection_significant_harm').prop('value', "");
+            $('#strategy_selection_ecological_impact').prop('checked', false);
+            $('#strategy_selection_limited_distribution').prop('checked', false);
+            $('#strategy_selection_widespread_distribution').prop('checked', false);
+            $('#strategy_selection_negligible_impact').prop('checked', false);
+            $('#strategy_selection_significant_harm').prop('checked', false);
             $('#strategy_selection_documentation').prop('value', "");
         }else if(currentStep === "2.2"){
             // SubStep Progress Bar
@@ -629,11 +622,7 @@ function IPMDAT_Init(){
             projectBackgroundImapAccount: null,
             // STRATEGY SELECTION (STEP 2)
             strategySelectionNYSScore: null,
-            strategySelectionEcologicalImpact: null,
-            strategySelectionLimitedDistribution: null,
-            strategySelectionWidespreadDistribution: null,
-            strategySelectionNegligibleImpact: null,
-            strategySelectionSignificantHarm: null,
+            strategySelectionCheckbox: null,
             strategySelectionDocumentation: null
             // ERADICATION (STEP 3)
             // CONTAINMENT (STEP 4)
@@ -683,11 +672,7 @@ function IPMDAT_Init(){
             projectBackgroundImapAccount: null,
             // STRATEGY SELECTION (STEP 2)
             strategySelectionNYSScore: null,
-            strategySelectionEcologicalImpact: null,
-            strategySelectionLimitedDistribution: null,
-            strategySelectionWidespreadDistribution: null,
-            strategySelectionNegligibleImpact: null,
-            strategySelectionSignificantHarm: null,
+            strategySelectionCheckbox: null,
             strategySelectionDocumentation: null
             // ERADICATION (STEP 3)
             // CONTAINMENT (STEP 4)
@@ -870,7 +855,6 @@ function IPMDAT_Init(){
     //------------------------------------------------------------------------\\
     // Strategy Selection                                                     \\
     //------------------------------------------------------------------------\\
-    //strategySelectionNYSScore
     //strategySelectionEcologicalImpact
     //strategySelectionLimitedDistribution
     //strategySelectionWidespreadDistribution
@@ -878,6 +862,11 @@ function IPMDAT_Init(){
     //strategySelectionSignificantHarm
     //strategySelectionDocumentation
     // 2.1
+    //strategySelectionNYSScore
+    if(savedData.strategySelectionNYSScore !== null){
+        cookieData.strategySelectionNYSScore = savedData.strategySelectionNYSScore;
+    }else{ stepFail = true; }
+
     if(stepFail === false){
         completedSteps.push("2.1");
     }
@@ -994,6 +983,26 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         saveArray = {};
     
     // Subcategory Values
+
+    // Date Picker
+    new JsDatePick({
+        useMode: 2,
+        target: 'project_background_assessors_date',
+        cellColorScheme: '../static/css/img/ocean_blue',
+        limitToToday: true
+    });
+    new JsDatePick({
+        useMode: 2,
+        target: 'project_background_start_date',
+        cellColorScheme: '../static/css/img/ocean_blue',
+        limitToToday: true
+    });
+    new JsDatePick({
+        useMode: 2,
+        target: 'project_background_end_date',
+        cellColorScheme: '../static/css/img/ocean_blue',
+        limitToToday: true
+    });
 
     // Check if loading data
     var completedStepsLength = completedSteps.length;
@@ -1241,6 +1250,12 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     };
     
     function Project_Background_Substep_One_Save(){
+        // Manual Entry on DatePickers
+        if($('#project_background_assessors_date').prop('value') === ""){
+            projectBackgroundArray.projectBackgroundAssessorsDateAnswer = null;
+        }else{
+            projectBackgroundArray.projectBackgroundAssessorsDateAnswer = $('#project_background_assessors_date').val();
+        }
         // Populate saveArray
         saveArray = {
             projectBackgroundAssessors: projectBackgroundArray.projectBackgroundAssessorsAnswer,
@@ -1303,6 +1318,18 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
     };
 
     function Project_Background_Substep_Two_Save(){
+        // Manual Entry on DatePickers
+        if($('#project_background_start_date').prop('value') === ""){
+            projectBackgroundArray.projectBackgroundStartDateAnswer = null;
+        }else{
+            projectBackgroundArray.projectBackgroundStartDateAnswer = $('#project_background_start_date').val();
+        }
+        if($('#project_background_end_date').prop('value') === ""){
+            projectBackgroundArray.projectBackgroundEndDateAnswer = null;
+        }else{
+            projectBackgroundArray.projectBackgroundEndDateAnswer = $('#project_background_end_date').val();
+        }
+        // Populate saveArray
         saveArray = {
             projectBackgroundNumberOfYearsToComplete: projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer,
             projectBackgroundStartDate: projectBackgroundArray.projectBackgroundStartDateAnswer,
@@ -1417,15 +1444,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundAssessorsAnswer = null;
             }else{
                 projectBackgroundArray.projectBackgroundAssessorsAnswer = $('#project_background_assessors').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_assessors_date').keyup(function(){
-            if($('#project_background_assessors_date').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundAssessorsDateAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundAssessorsDateAnswer = $('#project_background_assessors_date').val();
             }
             // Execute Form_Check
             Project_Background_Substep_One_Check(projectBackgroundArray);
@@ -1564,24 +1582,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
                 projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = null;
             }else{
                 projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = $('#project_background_number_of_years_to_complete').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Two_Check(projectBackgroundArray);
-        });
-        $('#project_background_start_date').keyup(function(){
-            if($('#project_background_start_date').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundStartDateAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundStartDateAnswer = $('#project_background_start_date').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Two_Check(projectBackgroundArray);
-        });
-        $('#project_background_end_date').keyup(function(){
-            if($('#project_background_end_date').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundEndDateAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundEndDateAnswer = $('#project_background_end_date').val();
             }
             // Execute Form_Check
             Project_Background_Substep_Two_Check(projectBackgroundArray);
@@ -1954,11 +1954,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
     // Declare Variables
     var strategySelectionArray = {
             strategySelectionNYSScoreAnswer: null,
-            strategySelectionEcologicalImpactAnswer: null,
-            strategySelectionLimitedDistributionAnswer: null,
-            strategySelectionWidespreadDistributionAnswer: null,
-            strategySelectionNegligibleImpactAnswer: null,
-            strategySelectionSignificantHarmAnswer: null,
+            strategySelectionCheckboxAnswer: null,
             strategySelectionDocumentationAnswer: null
         },
         saveArray = {};
@@ -1971,21 +1967,37 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         if(completedSteps[i] === "2.1"){
             // Load Question Answers
             strategySelectionArray.strategySelectionNYSScoreAnswer = cookieData.strategySelectionNYSScore;
+            strategySelectionArray.strategySelectionCheckboxAnswer = cookieData.strategySelectionCheckbox;
+            strategySelectionArray.strategySelectionDocumentationAnswer = cookieData.strategySelectionDocumentation;
             
             // Populate Fields w/ values
             $('#strategy_selection_NYS_score').prop('value', strategySelectionArray.strategySelectionNYSScoreAnswer);
+
+            if(strategySelectionArray.strategySelectionCheckboxAnswer === "ecologicalImpact"){
+                $('#strategy_selection_ecological_impact').prop('checked', true);
+            }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "limitedDistribution"){
+                $('#strategy_selection_limited_distribution').prop('checked', true);
+            }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "widespreadDistribution"){
+                $('#strategy_selection_widespread_distribution').prop('checked', true);
+            }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "negligibleImpact"){
+                $('#strategy_selection_negligible_impact').prop('checked', true);
+            }else if(strategySelectionArray.strategySelectionCheckboxAnswer === "significantHarm"){
+                $('#strategy_selection_significant_harm').prop('checked', true);
+            }
+
+            $('#strategy_selection_documentation').prop('value', strategySelectionArray.strategySelectionDocumentationAnswer);
         }
         if(completedSteps[i] === "2.2"){
             // Load Question Answers
 
             // Populate Fields w/ values
         }
-        if(completedSteps[i] === "1.3"){
+        if(completedSteps[i] === "2.3"){
             // Load Question Answers
 
             // Populate Fields w/ values
         }
-        if(completedSteps[i] === "1.4"){
+        if(completedSteps[i] === "2.4"){
             // Load Question Answers
 
             // Populate Fields w/ values
@@ -1994,7 +2006,6 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
 
     // Function Form Checks & Misc Functions
     function Strategy_Selection_Substep_One_Check(form_array){
-        console.log(form_array);
         if(form_array.strategySelectionNYSScoreAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
@@ -2020,11 +2031,7 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
         // Populate saveArray
         saveArray = {
             strategySelectionNYSScore: strategySelectionArray.strategySelectionNYSScoreAnswer,
-            strategySelectionEcologicalImpact: strategySelectionArray.strategySelectionEcologicalImpactAnswer,
-            strategySelectionLimitedDistribution: strategySelectionArray.strategySelectionLimitedDistributionAnswer,
-            strategySelectionWidespreadDistribution: strategySelectionArray.strategySelectionWidespreadDistributionAnswer,
-            strategySelectionNegligibleImpact: strategySelectionArray.strategySelectionNegligibleImpactAnswer,
-            strategySelectionSignificantHarm: strategySelectionArray.strategySelectionSignificantHarmAnswer,
+            strategySelectionCheckbox: strategySelectionArray.strategySelectionCheckboxAnswer,
             strategySelectionDocumentation: strategySelectionArray.strategySelectionDocumentationAnswer
             
         };
@@ -2049,6 +2056,27 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
     function Project_Background_Substep_Four_Save(){
     };
 
+    function Project_Background_Substep_One_Check_Boxes(boxName){
+        $('#strategy_selection_ecological_impact').prop('checked', false);
+        $('#strategy_selection_limited_distribution').prop('checked', false);
+        $('#strategy_selection_widespread_distribution').prop('checked', false);
+        $('#strategy_selection_negligible_impact').prop('checked', false);
+        $('#strategy_selection_significant_harm').prop('checked', false);
+        $(boxName).prop('checked', true);
+        
+        if($('#strategy_selection_ecological_impact').is(':checked')){
+            strategySelectionArray.strategySelectionCheckboxAnswer = 'ecologicalImpact';
+        }else if($('#strategy_selection_limited_distribution').is(':checked')){
+            strategySelectionArray.strategySelectionCheckboxAnswer = 'limitedDistribution';
+        }else if($('#strategy_selection_widespread_distribution').is(':checked')){
+            strategySelectionArray.strategySelectionCheckboxAnswer = 'widespreadDistribution';
+        }else if($('#strategy_selection_negligible_impact').is(':checked')){
+            strategySelectionArray.strategySelectionCheckboxAnswer = 'negligibleImpact';
+        }else if($('#strategy_selection_significant_harm').is(':checked')){
+            strategySelectionArray.strategySelectionCheckboxAnswer = 'significantHarm';
+        }
+        Strategy_Selection_Substep_One_Check(strategySelectionArray);
+    }
 
     // Base following code on substep number
     if(currentStep === "2.1"){
@@ -2063,50 +2091,20 @@ function JSON_Cookie_Step_Strategy_Selection(cookieData, completedSteps, current
             // Execute Form_Check
             Strategy_Selection_Substep_One_Check(strategySelectionArray);
         });
-        $('#strategy_selection_ecological_impact').keyup(function(){
-            if($('#strategy_selection_ecological_impact').prop('value') === ""){
-                strategySelectionArray.strategySelectionEcologicalImpactAnswer = null;
-            }else{
-                strategySelectionArray.strategySelectionEcologicalImpactAnswer = $('#strategy_selection_ecological_impact').val();
-            }
-            // Execute Form_Check
-            Strategy_Selection_Substep_One_Check(strategySelectionArray);
+        $('#strategy_selection_ecological_impact').change(function(){
+            Project_Background_Substep_One_Check_Boxes('#strategy_selection_ecological_impact');
         });
-        $('#strategy_selection_limited_distribution').keyup(function(){
-            if($('#strategy_selection_limited_distribution').prop('value') === ""){
-                strategySelectionArray.strategySelectionLimitedDistributionAnswer = null;
-            }else{
-                strategySelectionArray.strategySelectionLimitedDistributionAnswer = $('#strategy_selection_limited_distribution').val();
-            }
-            // Execute Form_Check
-            Strategy_Selection_Substep_One_Check(strategySelectionArray);
+        $('#strategy_selection_limited_distribution').change(function(){
+            Project_Background_Substep_One_Check_Boxes('#strategy_selection_limited_distribution');
         });
-        $('#strategy_selection_widespread_distribution').keyup(function(){
-            if($('#strategy_selection_widespread_distribution').prop('value') === ""){
-                strategySelectionArray.strategySelectionWidespreadDistributionAnswer = null;
-            }else{
-                strategySelectionArray.strategySelectionWidespreadDistributionAnswer = $('#strategy_selection_widespread_distribution').val();
-            }
-            // Execute Form_Check
-            Strategy_Selection_Substep_One_Check(strategySelectionArray);
+        $('#strategy_selection_widespread_distribution').change(function(){
+            Project_Background_Substep_One_Check_Boxes('#strategy_selection_widespread_distribution');
         });
-        $('#strategy_selection_negligible_impact').keyup(function(){
-            if($('#strategy_selection_negligible_impact').prop('value') === ""){
-                strategySelectionArray.strategySelectionNegligibleImpactAnswer = null;
-            }else{
-                strategySelectionArray.strategySelectionNegligibleImpactAnswer = $('#strategy_selection_negligible_impact').val();
-            }
-            // Execute Form_Check
-            Strategy_Selection_Substep_One_Check(strategySelectionArray);
+        $('#strategy_selection_negligible_impact').change(function(){
+            Project_Background_Substep_One_Check_Boxes('#strategy_selection_negligible_impact');
         });
-        $('#strategy_selection_significant_harm').keyup(function(){
-            if($('#strategy_selection_significant_harm').prop('value') === ""){
-                strategySelectionArray.strategySelectionSignificantHarmAnswer = null;
-            }else{
-                strategySelectionArray.strategySelectionSignificantHarmAnswer = $('#strategy_selection_significant_harm').val();
-            }
-            // Execute Form_Check
-            Strategy_Selection_Substep_One_Check(strategySelectionArray);
+        $('#strategy_selection_significant_harm').change(function(){
+            Project_Background_Substep_One_Check_Boxes('#strategy_selection_significant_harm');
         });
         $('#strategy_selection_documentation').keyup(function(){
             if($('#strategy_selection_documentation').prop('value') === ""){
