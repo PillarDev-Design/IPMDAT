@@ -59,10 +59,17 @@ function Create_Div(divArray){
     tempBuild += ("<div id='" + divArray.mainID + "_content' ");
     tempBuild += ("class='" + compiledContentClasses + "'>");
     // Input
-    tempBuild += ("<input id='" + divArray.mainID + "' ");
-    tempBuild += ("class='" + compiledInputClasses + "' ");
-    tempBuild += ("type='" + divArray.inputType + "'></input>");
-    tempBuild += ("</div><div class='clear'></div></div>");
+    if(divArray.changeDiv === "textarea"){
+        tempBuild += ("<textarea id='" + divArray.mainID + "' ");
+        tempBuild += ("class='" + compiledInputClasses + "' ");
+        tempBuild += ("type='" + divArray.inputType + "'></textarea>");
+        tempBuild += ("</div><div class='clear'></div></div>");
+    }else{
+        tempBuild += ("<input id='" + divArray.mainID + "' ");
+        tempBuild += ("class='" + compiledInputClasses + "' ");
+        tempBuild += ("type='" + divArray.inputType + "'></input>");
+        tempBuild += ("</div><div class='clear'></div></div>");
+    }
 
     // Append To divArray.mainContainer
     $(divArray.mainContainer).append(tempBuild);
@@ -417,6 +424,102 @@ function Create_HTML(){
         inputClasses: ['content_step_question_text_input_scheme']
     };
     elementProperties.push(temp);
+    /*******************************************\
+     * strategy_selection                      *
+    \*******************************************/
+    // strategy_selection_NYS_score
+    temp = {
+        mainContainer: '#one_part_NYS_score',
+        mainID: 'strategy_selection_NYS_score',
+        containerClasses: ['content_step_question_container_scheme'],
+        labelClasses: ['content_step_question_label_scheme'],
+        labelText: 'Total NYS Ecological Impact Score (Max 40):',
+        required: true,
+        contentClasses: ['content_step_question_content_scheme'],
+        inputType: 'text',
+        inputClasses: ['content_step_question_text_input_scheme']
+    };
+    elementProperties.push(temp);
+    // strategy_selection_ecological_impact
+    temp = {
+        mainContainer: '#one_part_ecological_impact',
+        mainID: 'strategy_selection_ecological_impact',
+        containerClasses: ['content_step_question_container_scheme'],
+        labelClasses: ['content_step_question_label_scheme'],
+        labelText: 'Significant ecological impact:',
+        required: false,
+        contentClasses: ['content_step_question_content_scheme'],
+        inputType: 'checkbox',
+        inputClasses: ['content_step_question_text_input_scheme']
+    };
+    elementProperties.push(temp);
+    // strategy_selection_limited_distribution
+    temp = {
+        mainContainer: '#one_part_limited_distribution',
+        mainID: 'strategy_selection_limited_distribution',
+        containerClasses: ['content_step_question_container_scheme'],
+        labelClasses: ['content_step_question_label_scheme'],
+        labelText: 'Ecological impact uncertain, limited state wide distribution:',
+        required: false,
+        contentClasses: ['content_step_question_content_scheme'],
+        inputType: 'checkbox',
+        inputClasses: ['content_step_question_text_input_scheme']
+    };
+    elementProperties.push(temp);
+    // strategy_selection_widespread_distribution
+    temp = {
+        mainContainer: '#one_part_widespread_distribution',
+        mainID: 'strategy_selection_widespread_distribution',
+        containerClasses: ['content_step_question_container_scheme'],
+        labelClasses: ['content_step_question_label_scheme'],
+        labelText: 'Ecological impact uncertain, widespread state wide distribution:',
+        required: false,
+        contentClasses: ['content_step_question_content_scheme'],
+        inputType: 'checkbox',
+        inputClasses: ['content_step_question_text_input_scheme']
+    };
+    elementProperties.push(temp);
+    // strategy_selection_negligible_impact
+    temp = {
+        mainContainer: '#one_part_negligible_impact',
+        mainID: 'strategy_selection_negligible_impact',
+        containerClasses: ['content_step_question_container_scheme'],
+        labelClasses: ['content_step_question_label_scheme'],
+        labelText: 'Negligible impact or harm:',
+        required: false,
+        contentClasses: ['content_step_question_content_scheme'],
+        inputType: 'checkbox',
+        inputClasses: ['content_step_question_text_input_scheme']
+    };
+    elementProperties.push(temp);
+    // strategy_selection_significant_harm
+    temp = {
+        mainContainer: '#one_part_significant_harm',
+        mainID: 'strategy_selection_significant_harm',
+        containerClasses: ['content_step_question_container_scheme'],
+        labelClasses: ['content_step_question_label_scheme'],
+        labelText: 'Significant harm to human health, economy, or other values:',
+        required: false,
+        contentClasses: ['content_step_question_content_scheme'],
+        inputType: 'checkbox',
+        inputClasses: ['content_step_question_text_input_scheme']
+    };
+    elementProperties.push(temp);
+    // strategy_selection_documentation
+    temp = {
+        mainContainer: '#one_part_documentation',
+        mainID: 'strategy_selection_documentation',
+        containerClasses: ['content_step_question_container_scheme'],
+        labelClasses: ['content_step_question_label_scheme'],
+        labelText: 'Documentation:',
+        required: false,
+        contentClasses: ['content_step_question_content_scheme'],
+        inputType: 'checkbox',
+        inputClasses: ['content_step_question_text_input_scheme'],
+        changeDiv: 'textarea'
+    };
+    elementProperties.push(temp);
+
 
     // Create Elements
     var propertiesLength = elementProperties.length;

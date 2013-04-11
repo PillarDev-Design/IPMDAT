@@ -140,11 +140,6 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
                 // Recall OLD data from savedData
                 cookieArray.strategySelectionNYSScore = savedData.strategySelectionNYSScore;
                 cookieArray.strategySelectionCheckbox = savedData.strategySelectionCheckbox;
-                cookieArray.strategySelectionEcologicalImpact = savedData.strategySelectionEcologicalImpact;
-                cookieArray.strategySelectionLimitedDistribution = savedData.strategySelectionLimitedDistribution;
-                cookieArray.strategySelectionWidespreadDistribution = savedData.strategySelectionWidespreadDistribution;
-                cookieArray.strategySelectionNegligibleImpact = savedData.strategySelectionNegligibleImpact;
-                cookieArray.strategySelectionSignificantHarm = savedData.strategySelectionSignificantHarm;
                 cookieArray.strategySelectionDocumentation = savedData.strategySelectionDocumentation;
             }
         }else if(completedSteps[i] === "3"){
@@ -1082,60 +1077,13 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
 
     // Function Form Checks & Misc Functions
     function Project_Background_Substep_One_Check(form_array){
-        /*
-         * The following requires that all fields be completed.
-         * For intents and purposes, we will only require one field.
-        if((form_array.projectBackgroundAssessorsAnswer !== null)&&
-            (form_array.projectBackgroundAssessorsDateAnswer !== null)&&
-            (form_array.projectBackgroundScientificNameAnswer !== null)&&
-            (form_array.projectBackgroundCommonNameAnswer !== null)&&
-            (form_array.projectBackgroundScaleAnswer !== null)&&
-            (form_array.projectBackgroundPRISMWMAAnswer !== null)&&
-            (form_array.projectBackgroundConservationTargetImpactedAnswer !== null)&&
-            (form_array.projectBackgroundProjectAreaNameAnswer !== null)&&
-            (form_array.projectBackgroundProjectAreaSizeAnswer !== null)&&
-            (form_array.projectBackgroundPropertyOwnersAnswer !== null)&&
-            (form_array.projectBackgroundProjectStateAnswer !== null)&&
-            (form_array.projectBackgroundProjectCountyAnswer !== null)&&
-            (form_array.projectBackgroundProjectCoordXAnswer !== null)&&
-            (form_array.projectBackgroundProjectCoordYAnswer !== null)&&
-            (form_array.projectBackgroundProjectCoordSystemAnswer !== null)&&
-            (form_array.projectBackgroundProjectGoalAnswer !== null)){
-            if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
-                $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
-                // Progress Bar
-                $('#content_step_project_background_substep_two').removeClass('content_substep_inactive').addClass('content_substep_available');
-            }
-        }else if((form_array.projectBackgroundAssessorsAnswer === null)||
-                (form_array.projectBackgroundAssessorsDateAnswer === null)||
-                (form_array.projectBackgroundScientificNameAnswer === null)||
-                (form_array.projectBackgroundCommonNameAnswer === null)||
-                (form_array.projectBackgroundScaleAnswer === null)||
-                (form_array.projectBackgroundPRISMWMAAnswer === null)||
-                (form_array.projectBackgroundConservationTargetImpactedAnswer === null)||
-                (form_array.projectBackgroundProjectAreaNameAnswer === null)||
-                (form_array.projectBackgroundProjectAreaSizeAnswer === null)||
-                (form_array.projectBackgroundPropertyOwnersAnswer === null)||
-                (form_array.projectBackgroundProjectStateAnswer === null)||
-                (form_array.projectBackgroundProjectCountyAnswer === null)||
-                (form_array.projectBackgroundProjectCoordXAnswer === null)||
-                (form_array.projectBackgroundProjectCoordYAnswer === null)||
-                (form_array.projectBackgroundProjectCoordSystemAnswer === null)||
-                (form_array.projectBackgroundProjectGoalAnswer === null)){
-            if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
-                // Progress Bar
-                $('#content_step_project_background_substep_two').removeClass('content_substep_available').addClass('content_substep_inactive');
-            } 
-        }
-        */
         if(form_array.projectBackgroundAssessorsAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
                 $('#content_step_project_background_substep_two').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
-        }else if(form_array.projectBackgroundAssessorAnswer === null){
+        }else{
             if($('#content_nav_forward').hasClass('content_nav_base_active')){
                 $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
                 // Progress Bar
@@ -1144,36 +1092,13 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         }
     };
     function Project_Background_Substep_Two_Check(form_array){
-        /*
-        if((form_array.projectBackgroundNumberOfYearsToCompleteAnswer !== null)&&
-            (form_array.projectBackgroundStartDateAnswer !== null)&&
-            (form_array.projectBackgroundEndDateAnswer !== null)&&
-            (form_array.projectBackgroundOngoingProjectAnswer !== null)&&
-            (form_array.projectBackgroundControlRequiredAnswer !== null)){
-            if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
-                $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
-                // Progress Bar
-                $('#content_step_project_background_substep_three').removeClass('content_substep_inactive').addClass('content_substep_available');
-            }
-        }else if((form_array.projectBackgroundNumberOfYearsToCompleteAnswer === null)||
-            (form_array.projectBackgroundStartDateAnswer === null)||
-            (form_array.projectBackgroundEndDateAnswer === null)||
-            (form_array.projectBackgroundOngoingProjectAnswer === null)||
-            (form_array.projectBackgroundControlRequiredAnswer === null)){
-            if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
-                // Progress Bar
-                $('#content_step_project_background_substep_three').removeClass('content_substep_available').addClass('content_substep_inactive');
-            } 
-        }
-        */
         if(form_array.projectBackgroundNumberOfYearsToCompleteAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
                 $('#content_step_project_background_substep_three').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
-        }else if(form_array.projectBackgroundNumberOfYearsToCompleteAnswer === null){
+        }else{
             if($('#content_nav_forward').hasClass('content_nav_base_active')){
                 $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
                 // Progress Bar
@@ -1182,33 +1107,13 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         }
     };
     function Project_Background_Substep_Three_Check(form_array){
-        /*
-        if((form_array.projectBackgroundGrossInvadedAreaAnswer !== null)&&
-            (form_array.projectBackgroundNetInvadedAreaAnswer !== null)&&
-            (form_array.projectBackgroundNumberOfOccurancesAnswer !== null)){
-            if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
-                $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
-                // Progress Bar
-                $('#content_step_project_background_substep_four').removeClass('content_substep_inactive').addClass('content_substep_available');
-            }
-
-        }else if((form_array.projectBackgroundGrossInvadedAreaAnswer === null)||
-            (form_array.projectBackgroundNetInvadedAreaAnswer === null)||
-            (form_array.projectBackgroundNumberOfOccurancesAnswer === null)){
-            if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
-                // Progress Bar
-                $('#content_step_project_background_substep_four').removeClass('content_substep_available').addClass('content_substep_inactive');
-            } 
-        }
-        */
         if(form_array.projectBackgroundGrossInvadedAreaAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
                 $('#content_step_project_background_substep_four').removeClass('content_substep_inactive').addClass('content_substep_available');
             }
-        }else if(form_array.projectBackgroundGrossInvadedAreaAnswer === null){
+        }else{
             if($('#content_nav_forward').hasClass('content_nav_base_active')){
                 $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
                 // Progress Bar
@@ -1217,30 +1122,13 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
         }
     };
     function Project_Background_Substep_Four_Check(form_array){
-        /*
-        if((form_array.projectBackgroundImapShareResultsAnswer !== null)&&
-            (form_array.projectBackgroundImapAccountAnswer !== null)){
-            if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
-                $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
-                // Progress Bar
-                $('#content_progress_bar_strategy_selection').removeClass('progress_bar_inactive').addClass('progress_bar_available');
-            }
-        }else if((form_array.projectBackgroundImapShareResultsAnswer === null)||
-            (form_array.projectBackgroundImapAccountAnswer === null)){
-            if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
-                // Progress Bar
-                $('#content_progress_bar_strategy_selection').removeClass('progress_bar_available').addClass('progress_bar_inactive');
-            } 
-        }
-        */
         if(form_array.projectBackgroundImapShareResultsAnswer !== null){
             if($('#content_nav_forward').hasClass('content_nav_base_inactive')){
                 $('#content_nav_forward').removeClass('content_nav_base_inactive').addClass('content_nav_base_active');
                 // Progress Bar
                 $('#content_progress_bar_strategy_selection').removeClass('progress_bar_inactive').addClass('progress_bar_available');
             }
-        }else if(form_array.projectBackgroundImapShareResultsAnswer === null){
+        }else{
             if($('#content_nav_forward').hasClass('content_nav_base_active')){
                 $('#content_nav_forward').removeClass('content_nav_base_active').addClass('content_nav_base_inactive');
                 // Progress Bar
@@ -1275,34 +1163,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             projectBackgroundProjectCoordSystem: projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer,
             projectBackgroundProjectGoal: projectBackgroundArray.projectBackgroundProjectGoalAnswer
         };
-        /*
-        if((projectBackgroundArray.projectBackgroundAssessorsAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundAssessorsDateAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundScientificNameAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundCommonNameAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundScaleAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundPRISMWMAAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundProjectAreaNameAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundPropertyOwnersAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundProjectStateAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundProjectCountyAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundProjectCoordXAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundProjectCoordYAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundProjectGoalAnswer !== null)){
-            var addStep = true;
-            for(var i=0; i<completedSteps.length; i++){
-                if(completedSteps[i] === "1.1"){
-                    addStep = false;
-                }
-            }
-            if(addStep === true){
-                completedSteps.push("1.1");
-            }
-        }
-        */
         if(projectBackgroundArray.projectBackgroundAssessorsAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
@@ -1337,23 +1197,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             projectBackgroundOngoingProject: projectBackgroundArray.projectBackgroundOngoingProjectAnswer,
             projectBackgroundControlRequired: projectBackgroundArray.projectBackgroundControlRequiredAnswer
         };
-        /*
-        if((projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundStartDateAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundEndDateAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundOngoingProjectAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundControlRequiredAnswer !== null)){
-            var addStep = true;
-            for(var i=0; i<completedSteps.length; i++){
-                if(completedSteps[i] === "1.2"){
-                    addStep = false;
-                }
-            }
-            if(addStep === true){
-                completedSteps.push("1.2");
-            }
-        }
-        */
         if(projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
@@ -1373,21 +1216,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             projectBackgroundNetInvadedArea: projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer,
             projectBackgroundNumberOfOccurances: projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer
         };
-        /*
-        if((projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer !== null)){
-            var addStep = true;
-            for(var i=0; i<completedSteps.length; i++){
-                if(completedSteps[i] === "1.3"){
-                    addStep = false;
-                }
-            }
-            if(addStep === true){
-                completedSteps.push("1.3");
-            }
-        }
-        */
         if(projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
@@ -1406,20 +1234,6 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
             projectBackgroundImapShareResults: projectBackgroundArray.projectBackgroundImapShareResultsAnswer,
             projectBackgroundImapAccount: projectBackgroundArray.projectBackgroundImapAccountAnswer
         };
-        /*
-        if((projectBackgroundArray.projectBackgroundImapShareResultsAnswer !== null)&&
-            (projectBackgroundArray.projectBackgroundImapAccountAnswer !== null)){
-            var addStep = true;
-            for(var i=0; i<completedSteps.length; i++){
-                if(completedSteps[i] === "1.4"){
-                    addStep = false;
-                }
-            }
-            if(addStep === true){
-                completedSteps.push("1.4");
-            }
-        }
-        */
         if(projectBackgroundArray.projectBackgroundImapShareResultsAnswer !== null){
             var addStep = true;
             for(var i=0; i<completedSteps.length; i++){
@@ -1436,485 +1250,224 @@ function JSON_Cookie_Step_Project_Background(cookieData, completedSteps, current
 
 
     // Base following code on substep number
+    function Add_Event_To_Field(fieldLocation, substep){
+        var tempHolder;
+        $(fieldLocation).keyup(function(){
+            if($(fieldLocation).prop('value') === ""){
+                tempHolder = null;
+            }else{
+                tempHolder = $(fieldLocation).val();
+            }
+            if(fieldLocation === "#project_background_assessors"){ projectBackgroundArray.projectBackgroundAssessorsAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_scientific_name"){ projectBackgroundArray.projectBackgroundScientificNameAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_common_name"){ projectBackgroundArray.projectBackgroundCommonNameAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_scale"){ projectBackgroundArray.projectBackgroundScaleAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_PRISMWMA"){ projectBackgroundArray.projectBackgroundPRISMWMAAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_conservation_target_impacted"){ projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_area_name"){ projectBackgroundArray.projectBackgroundProjectAreaNameAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_area_size"){ projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_property_owners"){ projectBackgroundArray.projectBackgroundPropertyOwnersAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_state"){ projectBackgroundArray.projectBackgroundProjectStateAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_county"){ projectBackgroundArray.projectBackgroundProjectCountyAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_coord_x"){ projectBackgroundArray.projectBackgroundProjectCoordXAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_coord_y"){ projectBackgroundArray.projectBackgroundProjectCoordYAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_coord_system"){ projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_project_goal"){ projectBackgroundArray.projectBackgroundProjectGoalAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_number_of_years_to_complete"){ projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_ongoing_project"){ projectBackgroundArray.projectBackgroundOngoingProjectAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_control_required"){ projectBackgroundArray.projectBackgroundControlRequiredAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_gross_invaded_area"){ projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_net_invaded_area"){ projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_number_of_occurances"){ projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_imap_share_results"){ projectBackgroundArray.projectBackgroundImapShareResultsAnswer = tempHolder;
+            }else if(fieldLocation === "#project_background_imap_account"){ projectBackgroundArray.projectBackgroundImapAccountAnswer = tempHolder; }
+
+            if(substep === "1"){
+                Project_Background_Substep_One_Check(projectBackgroundArray);
+            }else if(substep === "2"){
+                Project_Background_Substep_Two_Check(projectBackgroundArray);
+            }else if(substep === "3"){
+                Project_Background_Substep_Three_Check(projectBackgroundArray);
+            }else if(substep === "4"){
+                Project_Background_Substep_Four_Check(projectBackgroundArray);
+            }
+        });
+    };
     if(currentStep === "1.1"){
         Project_Background_Substep_One_Check(projectBackgroundArray);
-        // Assign Events to content fields
-        $('#project_background_assessors').keyup(function(){
-            if($('#project_background_assessors').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundAssessorsAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundAssessorsAnswer = $('#project_background_assessors').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_scientific_name').keyup(function(){
-            if($('#project_background_scientific_name').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundScientificNameAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundScientificNameAnswer = $('#project_background_scientific_name').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_common_name').keyup(function(){
-            if($('#project_background_common_name').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundCommonNameAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundCommonNameAnswer = $('#project_background_common_name').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_scale').keyup(function(){
-            if($('#project_background_scale').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundScaleAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundScaleAnswer = $('#project_background_scale').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_PRISMWMA').keyup(function(){
-            if($('#project_background_PRISMWMA').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundPRISMWMAAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundPRISMWMAAnswer = $('#project_background_PRISMWMA').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_conservation_target_impacted').keyup(function(){
-            if($('#project_background_conservation_target_impacted').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundConservationTargetImpactedAnswer = $('#project_background_conservation_target_impacted').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_project_area_name').keyup(function(){
-            if($('#project_background_project_area_name').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundProjectAreaNameAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundProjectAreaNameAnswer = $('#project_background_project_area_name').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_project_area_size').keyup(function(){
-            if($('#project_background_project_area_size').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundProjectAreaSizeAnswer = $('#project_background_project_area_size').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_property_owners').keyup(function(){
-            if($('#project_background_property_owners').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundPropertyOwnersAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundPropertyOwnersAnswer = $('#project_background_property_owners').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_project_state').keyup(function(){
-            if($('#project_background_project_state').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundProjectStateAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundProjectStateAnswer = $('#project_background_project_state').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_project_county').keyup(function(){
-            if($('#project_background_project_county').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundProjectCountyAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundProjectCountyAnswer = $('#project_background_project_county').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_project_coord_x').keyup(function(){
-            if($('#project_background_project_coord_x').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundProjectCoordXAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundProjectCoordXAnswer = $('#project_background_project_coord_x').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_project_coord_y').keyup(function(){
-            if($('#project_background_project_coord_y').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundProjectCoordYAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundProjectCoordYAnswer = $('#project_background_project_coord_y').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_project_coord_system').keyup(function(){
-            if($('#project_background_project_coord_system').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundProjectCoordSystemAnswer = $('#project_background_project_coord_system').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
-        $('#project_background_project_goal').keyup(function(){
-            if($('#project_background_project_goal').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundProjectGoalAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundProjectGoalAnswer = $('#project_background_project_goal').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_One_Check(projectBackgroundArray);
-        });
+        Add_Event_To_Field("#project_background_assessors", "1");
+        Add_Event_To_Field("#project_background_scientific_name", "1");
+        Add_Event_To_Field("#project_background_common_name", "1");
+        Add_Event_To_Field("#project_background_scale", "1");
+        Add_Event_To_Field("#project_background_PRISMWMA", "1");
+        Add_Event_To_Field("#project_background_conservation_target_impacted", "1");
+        Add_Event_To_Field("#project_background_project_area_name", "1");
+        Add_Event_To_Field("#project_background_project_area_size", "1");
+        Add_Event_To_Field("#project_background_property_owners", "1");
+        Add_Event_To_Field("#project_background_project_state", "1");
+        Add_Event_To_Field("#project_background_project_county", "1");
+        Add_Event_To_Field("#project_background_project_coord_x", "1");
+        Add_Event_To_Field("#project_background_project_coord_y", "1");
+        Add_Event_To_Field("#project_background_project_coord_system", "1");
+        Add_Event_To_Field("#project_background_project_goal", "1");
     }else if(currentStep === "1.2"){
         Project_Background_Substep_Two_Check(projectBackgroundArray);
-        // Assign Events to content fields
-        $('#project_background_number_of_years_to_complete').keyup(function(){
-            if($('#project_background_number_of_years_to_complete').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundNumberOfYearsToCompleteAnswer = $('#project_background_number_of_years_to_complete').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Two_Check(projectBackgroundArray);
-        });
-        $('#project_background_ongoing_project').keyup(function(){
-            if($('#project_background_ongoing_project').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundOngoingProjectAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundOngoingProjectAnswer = $('#project_background_ongoing_project').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Two_Check(projectBackgroundArray);
-        });
-        $('#project_background_control_required').keyup(function(){
-            if($('#project_background_control_required').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundControlRequiredAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundControlRequiredAnswer = $('#project_background_control_required').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Two_Check(projectBackgroundArray);
-        });
+        Add_Event_To_Field("#project_background_number_of_years_to_complete", "2");
+        Add_Event_To_Field("#project_background_ongoing_project", "2");
+        Add_Event_To_Field("#project_background_control_required", "2");
     }else if(currentStep === "1.3"){
         Project_Background_Substep_Three_Check(projectBackgroundArray);
-        // Assign Events to content fields
-        $('#project_background_gross_invaded_area').keyup(function(){
-            if($('#project_background_gross_invaded_area').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundGrossInvadedAreaAnswer = $('#project_background_gross_invaded_area').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Three_Check(projectBackgroundArray);
-        });
-        $('#project_background_net_invaded_area').keyup(function(){
-            if($('#project_background_net_invaded_area').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundNetInvadedAreaAnswer = $('#project_background_net_invaded_area').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Three_Check(projectBackgroundArray);
-        });
-        $('#project_background_number_of_occurances').keyup(function(){
-            if($('#project_background_number_of_occurances').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundNumberOfOccurancesAnswer = $('#project_background_number_of_occurances').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Three_Check(projectBackgroundArray);
-        });
+        Add_Event_To_Field("#project_background_gross_invaded_area", "3");
+        Add_Event_To_Field("#project_background_net_invaded_area", "3");
+        Add_Event_To_Field("#project_background_number_of_occurances", "3");
     }else if(currentStep === "1.4"){
         Project_Background_Substep_Four_Check(projectBackgroundArray);
-        // Assign Events to content fields
-        $('#project_background_imap_share_results').keyup(function(){
-            if($('#project_background_imap_share_results').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundImapShareResultsAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundImapShareResultsAnswer = $('#project_background_imap_share_results').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Four_Check(projectBackgroundArray);
-        });
-        $('#project_background_imap_account').keyup(function(){
-            if($('#project_background_imap_account').prop('value') === ""){
-                projectBackgroundArray.projectBackgroundImapAccountAnswer = null;
-            }else{
-                projectBackgroundArray.projectBackgroundImapAccountAnswer = $('#project_background_imap_account').val();
-            }
-            // Execute Form_Check
-            Project_Background_Substep_Four_Check(projectBackgroundArray);
-        });
+        Add_Event_To_Field("#project_background_imap_share_results", "4");
+        Add_Event_To_Field("#project_background_imap_account", "4");
     }
+    
+    function Add_Event_To_Nav(destinationArray){
+        $('#content_nav_forward').click(function(){
+            if(destinationArray.forward !== "none"){
+                if($('#content_nav_forward').hasClass('content_nav_base_active')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.forward);
+                }
+            }
+        });
+        $('#content_nav_back').click(function(){
+            if(destinationArray.back !== "none"){
+                if($('#content_nav_back').hasClass('content_nav_base_active')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.back);
+                }
+            }
+        });
+        $('#content_step_project_background_substep_one').click(function(){
+            if(destinationArray.substep_one !== "none"){
+                if($('#content_step_project_background_substep_one').hasClass('content_substep_available')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_one);
+                }
+            }
+        });
+        $('#content_step_project_background_substep_two').click(function(){
+            if(destinationArray.substep_two !== "none"){
+                if($('#content_step_project_background_substep_two').hasClass('content_substep_available')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_two);
+                }
+            }
+        });
+        $('#content_step_project_background_substep_three').click(function(){
+            if(destinationArray.substep_three !== "none"){
+                if($('#content_step_project_background_substep_three').hasClass('content_substep_available')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_three);
+                }
+            }
+        });
+        $('#content_step_project_background_substep_four').click(function(){
+            if(destinationArray.substep_four !== "none"){
+                if($('#content_step_project_background_substep_four').hasClass('content_substep_available')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.substep_four);
+                }
+            }
+        });
+        $('#content_progress_bar_project_background').click(function(){
+            if(destinationArray.projectBackground !== "none"){
+                if($('#content_progress_bar_project_background').hasClass('progress_bar_available')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.projectBackground);
+                }
+            }
+        });
+        $('#content_progress_bar_strategy_selection').click(function(){
+            if(destinationArray.strategySelection !== "none"){
+                if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_available')){
+                    if(destinationArray.current === "1.1"){ Project_Background_Substep_One_Save();
+                    }else if(destinationArray.current === "1.2"){ Project_Background_Substep_Two_Save();
+                    }else if(destinationArray.current === "1.3"){ Project_Background_Substep_Three_Save();
+                    }else if(destinationArray.current === "1.4"){ Project_Background_Substep_Four_Save(); }
+                    Check_Available_Steps(cookieData, completedSteps, destinationArray.strategySelection);
+                }
+            }
+        });
+    };
 
     // Assign Events to Nav Buttons
     if(currentStep === "1.1"){
-        $('#content_nav_forward').click(function(){
-            if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.2");
-            }
-        });
-        $('#content_nav_back').click(function(){
-        });
-        $('#content_step_project_background_substep_one').click(function(){
-        });
-        $('#content_step_project_background_substep_two').click(function(){
-            if($('#content_step_project_background_substep_two').hasClass('content_substep_available')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.2");
-            }
-        });
-        $('#content_step_project_background_substep_three').click(function(){
-            if($('#content_step_project_background_substep_three').hasClass('content_substep_available')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.3");
-            }
-        });
-        $('#content_step_project_background_substep_four').click(function(){
-            if($('#content_step_project_background_substep_four').hasClass('content_substep_available')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.4");
-            }
-        });
-        $('#content_progress_bar_project_background').click(function(){
-        });
-        $('#content_progress_bar_strategy_selection').click(function(){
-            if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_available')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "2.1");
-            }
-        });
-        $('#content_progress_bar_eradication').click(function(){
-            if($('#content_progress_bar_eradication').hasClass('progress_bar_available')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "3.1");
-            }
-        });
-        $('#content_progress_bar_containment').click(function(){
-            if($('#content_progress_bar_containment').hasClass('progress_bar_available')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "4.1");
-            }
-        });
-        $('#content_progress_bar_suppression').click(function(){
-            if($('#content_progress_bar_supression').hasClass('progress_bar_available')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "5.1");
-            }
-        });
-        $('#content_progress_bar_recommendation_summary').click(function(){
-            if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_available')){
-                Project_Background_Substep_One_Save();
-                Check_Available_Steps(cookieData, completedSteps, "6.1");
-            }
-        });
+        var destinationArray = {
+            current: '1.1',
+            forward: '1.2',
+            back: 'none',
+            substep_one: 'none',
+            substep_two: '1.2',
+            substep_three: '1.3',
+            substep_four: '1.4',
+            projectBackground: 'none',
+            strategySelection: '2.1'
+        };
     }else if(currentStep === "1.2"){
-        $('#content_nav_forward').click(function(){
-            if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.3");
-            }
-        });
-        $('#content_nav_back').click(function(){
-            if($('#content_nav_back').hasClass('content_nav_base_active')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.1");
-            }
-        });
-        $('#content_step_project_background_substep_one').click(function(){
-            if($('#content_step_project_background_substep_one').hasClass('content_substep_available')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.1");
-            }
-        });
-        $('#content_step_project_background_substep_two').click(function(){
-        });
-        $('#content_step_project_background_substep_three').click(function(){
-            if($('#content_step_project_background_substep_three').hasClass('content_substep_available')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.3");
-            }
-        });
-        $('#content_step_project_background_substep_four').click(function(){
-            if($('#content_step_project_background_substep_four').hasClass('content_substep_available')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.4");
-            }
-        });
-        $('#content_progress_bar_project_background').click(function(){
-        });
-        $('#content_progress_bar_strategy_selection').click(function(){
-            if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_available')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "2.1");
-            }
-        });
-        $('#content_progress_bar_eradication').click(function(){
-            if($('#content_progress_bar_eradication').hasClass('progress_bar_available')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "3.1");
-            }
-        });
-        $('#content_progress_bar_containment').click(function(){
-            if($('#content_progress_bar_containment').hasClass('progress_bar_available')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "4.1");
-            }
-        });
-        $('#content_progress_bar_suppression').click(function(){
-            if($('#content_progress_bar_supression').hasClass('progress_bar_available')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "5.1");
-            }
-        });
-        $('#content_progress_bar_recommendation_summary').click(function(){
-            if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_available')){
-                Project_Background_Substep_Two_Save();
-                Check_Available_Steps(cookieData, completedSteps, "6.1");
-            }
-        });
+        var destinationArray = {
+            current: '1.2',
+            forward: '1.3',
+            back: '1.1',
+            substep_one: '1.1',
+            substep_two: 'none',
+            substep_three: '1.3',
+            substep_four: '1.4',
+            projectBackground: 'none',
+            strategySelection: '2.1'
+        };
     }else if(currentStep === "1.3"){
-        $('#content_nav_forward').click(function(){
-            if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.4");
-            }
-        });
-        $('#content_nav_back').click(function(){
-            if($('#content_nav_back').hasClass('content_nav_base_active')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.2");
-            }
-        });
-        $('#content_step_project_background_substep_one').click(function(){
-            if($('#content_step_project_background_substep_one').hasClass('content_substep_available')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.1");
-            }
-        });
-        $('#content_step_project_background_substep_two').click(function(){
-            if($('#content_step_project_background_substep_two').hasClass('content_substep_available')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.2");
-            }
-        });
-        $('#content_step_project_background_substep_three').click(function(){
-        });
-        $('#content_step_project_background_substep_four').click(function(){
-            if($('#content_step_project_background_substep_four').hasClass('content_substep_available')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.4");
-            }
-        });
-        $('#content_progress_bar_project_background').click(function(){
-        });
-        $('#content_progress_bar_strategy_selection').click(function(){
-            if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_available')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "2.1");
-            }
-        });
-        $('#content_progress_bar_eradication').click(function(){
-            if($('#content_progress_bar_eradication').hasClass('progress_bar_available')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "3.1");
-            }
-        });
-        $('#content_progress_bar_containment').click(function(){
-            if($('#content_progress_bar_containment').hasClass('progress_bar_available')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "4.1");
-            }
-        });
-        $('#content_progress_bar_suppression').click(function(){
-            if($('#content_progress_bar_supression').hasClass('progress_bar_available')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "5.1");
-            }
-        });
-        $('#content_progress_bar_recommendation_summary').click(function(){
-            if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_available')){
-                Project_Background_Substep_Three_Save();
-                Check_Available_Steps(cookieData, completedSteps, "6.1");
-            }
-        });
+        var destinationArray = {
+            current: '1.3',
+            forward: '1.4',
+            back: '1.2',
+            substep_one: '1.1',
+            substep_two: '1.2',
+            substep_three: 'none',
+            substep_four: '1.4',
+            projectBackground: 'none',
+            strategySelection: '2.1'
+        };
     }else if(currentStep === "1.4"){
-        $('#content_nav_forward').click(function(){
-            if($('#content_nav_forward').hasClass('content_nav_base_active')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "2.1");
-            }
-        });
-        $('#content_nav_back').click(function(){
-            if($('#content_nav_back').hasClass('content_nav_base_active')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.3");
-            }
-        });
-        $('#content_step_project_background_substep_one').click(function(){
-            if($('#content_step_project_background_substep_one').hasClass('content_substep_available')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.1");
-            }
-        });
-        $('#content_step_project_background_substep_two').click(function(){
-            if($('#content_step_project_background_substep_two').hasClass('content_substep_available')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.2");
-            }
-        });
-        $('#content_step_project_background_substep_three').click(function(){
-            if($('#content_step_project_background_substep_three').hasClass('content_substep_available')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "1.3");
-            }
-        });
-        $('#content_step_project_background_substep_four').click(function(){
-        });
-        $('#content_progress_bar_project_background').click(function(){
-        });
-        $('#content_progress_bar_strategy_selection').click(function(){
-            if($('#content_progress_bar_strategy_selection').hasClass('progress_bar_available')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "2.1");
-            }
-        });
-        $('#content_progress_bar_eradication').click(function(){
-            if($('#content_progress_bar_eradication').hasClass('progress_bar_available')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "3.1");
-            }
-        });
-        $('#content_progress_bar_containment').click(function(){
-            if($('#content_progress_bar_containment').hasClass('progress_bar_available')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "4.1");
-            }
-        });
-        $('#content_progress_bar_suppression').click(function(){
-            if($('#content_progress_bar_supression').hasClass('progress_bar_available')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "5.1");
-            }
-        });
-        $('#content_progress_bar_recommendation_summary').click(function(){
-            if($('#content_progress_bar_recommendation_summary').hasClass('progress_bar_available')){
-                Project_Background_Substep_Four_Save();
-                Check_Available_Steps(cookieData, completedSteps, "6.1");
-            }
-        });
+        var destinationArray = {
+            current: '1.4',
+            forward: '2.1',
+            back: '1.3',
+            substep_one: '1.1',
+            substep_two: '1.2',
+            substep_three: '1.3',
+            substep_four: 'none',
+            projectBackground: 'none',
+            strategySelection: '2.1'
+        };
     }
+    Add_Event_To_Nav(destinationArray);
 };
 
 /***********************************************\
