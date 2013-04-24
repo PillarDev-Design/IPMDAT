@@ -154,6 +154,23 @@ function Save_Cookie(cookieData, stepNumber, completedSteps){
                 cookieArray.strategySelectionAbundanceAndDistributionCheckbox = savedData.strategySelectionAbundanceAndDistributionCheckbox;
                 cookieArray.strategySelectionAbundanceAndDistributionDocumentation = savedData.strategySelectionAbundanceAndDistributionDocumentation;
             }
+        }else if(completedSteps[i] === "2.3"){
+            if(stepNumber === "2.3"){
+                // Entering NEW data from cookieData
+                // cookieArray.strategySelection = cookieData.strategySelection;
+            }else{
+                // Recall OLD data from savedData
+                // cookieArray.strategySelection = savedData.strategySelection;
+            }
+        }else if(completedSteps[i] === "2.4"){
+            if(stepNumber === "2.4"){
+                // Entering NEW data from cookieData
+                // cookieArray.strategySelection = cookieData.strategySelection;
+            }else{
+                // Recall OLD data from savedData
+                // cookieArray.strategySelection = savedData.strategySelection;
+            }
+        }
         }else if(completedSteps[i] === "3"){
             // TODO: UPDATE HERE
             if(stepNumber === "eradication"){
